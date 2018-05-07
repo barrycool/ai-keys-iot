@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Application theme. -->
+
+    <style name="NoTitleBar" parent="android:Theme.Holo.NoActionBar"></style>
+
+    <style name="LoginEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">15dip</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColorHint">@color/esp_text_hint_color</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">15dip</item>
+        <item name="android:background">@drawable/esp_edit_underline_bg</item>
+        <item name="android:selectAllOnFocus">true</item>
+    </style>
+
+    <style name="YellowButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">75dip</item>
+        <item name="android:minHeight">40dip</item>
+        <item name="android:background">@drawable/esp_button_yellow</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="RegisterEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">15dip</item>
+        <item name="android:drawablePadding">15dip</item>
+        <item name="android:background">@drawable/esp_edit_round_bg</item>
+        <item name="android:textColorHint">@color/esp_text_hint_color</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:selectAllOnFocus">true</item>
+    </style>
+
+    <style name="BlueButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">75dip</item>
+        <item name="android:minHeight">40dip</item>
+        <item name="android:background">@drawable/esp_button_blue</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TransparentBgDialog" parent="android:Theme.Holo.Light.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
+    <style name="RadioGroupButtonStyle">
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+		<item name="android:drawablePadding">2dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/esp_color_blue</item>
+    </style>
+
+	<style name="user_fragment_all">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/page_title</item>
+	</style>
+    <style name="add_device_navigate_dots">
+        <item name="android:textSize">@dimen/textsize_normal</item>
+        <item name="android:textColor">@color/font_white_alpha</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>    
+    <style name="actionbar_image">
+        <item name="android:paddingLeft">10.0dip</item>
+        <item name="android:paddingRight">10.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>    
+    <style name="BottomLongBlueButton">
+        <item name="android:textSize">@dimen/textsize_large</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/btn_rectangle_bg_blue</item>
+        <item name="android:layout_height">@dimen/btn_rectangle_height</item>
+        <item name="android:layout_marginLeft">@dimen/di_left</item>
+        <item name="android:layout_marginTop">@dimen/di_left</item>
+        <item name="android:layout_marginRight">@dimen/di_right</item>
+        <item name="android:layout_marginBottom">@dimen/confirm_pair_margin_bottom</item>
+    </style>
+
+    <style name="page_des">
+        <item name="android:textSize">@dimen/page_des</item>
+        <item name="android:textColor">@color/page_des</item>
+    </style>
+    <style name="page_title">
+        <item name="android:textSize">@dimen/page_title</item>
+        <item name="android:textColor">@color/page_title</item>
+    </style>
+
+    <style name="add_device_navigate_dots_select" parent="@style/add_device_navigate_dots">
+        <item name="android:textColor">@color/white</item>
+    </style>  
+    <style name="CustomSingleCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:paddingLeft">10.0dip</item>
+        <item name="android:button">@drawable/selector_hook_single</item>
+    </style>
+
+</resources>

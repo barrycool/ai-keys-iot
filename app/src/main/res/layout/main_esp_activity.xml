@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    
+	<RadioGroup
+        android:id="@+id/bottom_radio_group_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@android:color/white"
+        >
+        <RadioButton
+            android:id="@+id/radio_button_device"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设备"
+            android:drawableTop="@drawable/btn_bottom_device_selector"
+            style="@style/RadioGroupButtonStyle"
+            />
+        <RadioButton
+            android:id="@+id/radio_button_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/bottom_add"
+            style="@style/RadioGroupButtonStyle"
+            />
+        <RadioButton
+            android:id="@+id/radio_button_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的"
+            android:drawableTop="@drawable/btn_bottom_user_selector"
+            style="@style/RadioGroupButtonStyle"
+            />
+    </RadioGroup>
+
+</LinearLayout>

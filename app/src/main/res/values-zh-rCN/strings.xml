@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ai-keys</string>
+
+    <string name="abc_action_bar_home_description">转到主屏幕</string>
+    <string name="abc_action_bar_up_description">转到上一层级</string>
+    <string name="abc_action_menu_overflow_description">更多选项</string>
+    <string name="abc_action_mode_done">完成</string>
+    <string name="abc_activity_chooser_view_see_all">查看全部</string>
+    <string name="abc_activitychooserview_choose_application">选择应用</string>
+    <string name="abc_capital_off">关闭</string>
+    <string name="abc_capital_on">开启</string>
+    <string name="abc_search_hint">搜索…</string>
+    <string name="abc_searchview_description_clear">清除查询</string>
+    <string name="abc_searchview_description_query">搜索查询</string>
+    <string name="abc_searchview_description_search">搜索</string>
+    <string name="abc_searchview_description_submit">提交查询</string>
+    <string name="abc_searchview_description_voice">语音搜索</string>
+    <string name="abc_shareactionprovider_share_with">分享方式</string>
+    <string name="abc_shareactionprovider_share_with_application">通过%s分享</string>
+    <string name="abc_toolbar_collapse_description">收起</string>
+    <string name="search_menu_title">搜索</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="add_device">添加设备</string>
+    <string name="change_net">点我切换网络</string>
+    <string name="choose_wifi">为设备联网选择一个WIFI</string>
+    <string name="config_discover_device">配置搜索到的设备</string>
+    <string name="confirm_to_state_pair">确认进入配对状态</string>
+    <string name="connected_device_wait">正在努力连接设备,请稍等...</string>
+    <string name="delay">延时</string>
+    <string name="device_add_finish">完成添加</string>
+    <string name="duration_timer">循环定时</string>
+    <string name="longpress_to_state_pair">"长按配对按钮,保持5秒左右,设备进入配对状态。
+如果是球泡灯、LED吸顶灯或加湿器，开关三次，每次通电时间大于2秒，灯呼吸闪烁或指示灯快闪，则设备进入配对状态。"</string>
+    <string name="my_smart_socketone">我的智能插座1</string>
+    <string name="name_device">命名设备</string>
+    <string name="next">下一步</string>
+    <string name="only_support_24">(只支持2.4G wifi)</string>
+    <string name="other_pair_instruction">其它配对方式说明</string>
+    <string name="pairing">正在配对...</string>
+    <string name="remember_wifi_password">记住Wi-Fi密码</string>
+    <string name="sure_device_closer_wifi">请确保手机和设备尽量靠近WIFI路由器</string>
+    <string name="timers">定时</string>
+    <string name="wifi_name">WiFi 名称</string>
+    <string name="wifi_pwd">WiFi 密码</string>
+</resources>

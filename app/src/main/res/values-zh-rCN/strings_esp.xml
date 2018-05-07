@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="esp_main_exit_message">\n是否退出应用？\n</string>
+    <string name="esp_main_exiting">正在退出&#8230;</string>
+
+    <string name="esp_login_account">输入邮箱</string>
+    <string name="esp_login_password">输入密码</string>
+    <string name="esp_login_login">登录</string>
+    <string name="esp_login_register">注册</string>
+    <string name="esp_login_third_party"><u>使用第三方登录</u></string>
+    <string name="esp_login_forget_password"><u>忘记密码</u></string>
+
+    <string name="esp_register_account">用户名</string>
+    <string name="esp_register_email">邮箱</string>
+    <string name="esp_register_input_password">输入至少6位密码</string>
+    <string name="esp_register_input_password_again">再次输入密码</string>
+    <string name="esp_register_register">注册</string>
+    <string name="esp_register_account_email_toast">请输入用户名和邮箱</string>
+    <string name="esp_register_account_email_format_error">邮箱格式错误</string>
+    <string name="esp_register_same_password_toast">请输入相同的密码</string>
+    <string name="esp_register_result_success">注册成功</string>
+    <string name="esp_register_phone">手机号</string>
+    <string name="esp_register_captcha_code">验证码</string>
+    <string name="esp_register_get_sms_captcha_code">获取短信验证码</string>
+    <string name="esp_register_get_email_captcha_code">获取邮箱验证码</string>    
+    <string name="esp_register_with_email"><u>使用邮箱注册</u></string>
+    <string name="esp_register_with_phone"><u>使用手机号注册</u></string>
+    <string name="esp_register_phone_number_toast">请输入手机号</string>
+    <string name="esp_register_captcha_code_toast">请输入验证码</string>
+    <string name="esp_register_get_sms_captcha_code_again">%1$d 秒后可再次获取验证码</string>
+
+    <string name="esp_reset_password">重置密码</string>
+    <string name="esp_reset_password_email_hint">请输入邮箱地址</string>
+
+    <string name="faq_alert">常见问题</string>
+    <string name="faq_device_failed">配对失败...</string>
+    <string name="feedback">意见反馈</string>    
+    <string name="language_actionbar_text">选择语言</string>    
+	<string name="exit_logout">退出登录</string>
+    <string name="change_nickname">修改昵称</string>	
+    <string name="change_password_out">修改密码</string>   
+    <string name="other_device_setting">设置</string>  
+    <string name="current_version">当前版本</string>       
+</resources>

@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/gray"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/esp_color_blue" >
+
+                <ImageView
+                    android:id="@+id/head_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/esp_login_head" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/head_image"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/user_fragment_nickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:text="测测测试"
+                        android:maxLines="1"
+                        android:maxWidth="160dip"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/user_fragment_phonenumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dip"
+                        android:text="18601721002"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/head_image"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:text="dsadsadsa@welink.me"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dip"
+                        android:text="Verification code: 22234"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(ONLY For Alexa eWeLink fan skill login)"
+                        android:textColor="@color/white"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="分组"
+                    android:textColor="@color/esp_color_blue"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="1dip"
+                    android:layout_height="22dip"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/gray" />
+
+                <TextView
+                    android:id="@+id/tv_scene"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="场景"
+                    android:textColor="@color/esp_color_blue"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dip"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/user_center_echo" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/user_center_down_arrow" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/user_center_google_home" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/user_center_down_arrow" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/user_center_nest" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/user_center_down_arrow" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/esp_user_center_item_height"
+                android:layout_marginTop="8dip"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/esp_user_center_item_padding_left" >
+
+                    <ImageView
+                        android:id="@+id/image_faq"
+                        android:layout_width="24dip"
+                        android:layout_height="24dip"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/user_center_faq" />
+
+                    <TextView
+                        style="@style/user_fragment_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/image_faq"
+                        android:paddingLeft="18dip"
+                        android:text="@string/faq_alert" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="30.0dip"
+                        android:text="@string/faq_device_failed"
+                        android:textColor="#ff787878"
+                        android:textSize="12.0sp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/new_user_center_right_arrow_width"
+                        android:layout_height="@dimen/new_user_center_right_arrow_high"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="5dip"
+                        android:src="@drawable/go" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/white" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="12dip"
+                    android:background="@color/div_line" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/esp_user_center_item_height"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/esp_user_center_item_padding_left" >
+
+                    <ImageView
+                        android:id="@+id/image_server"
+                        android:layout_width="22.0dip"
+                        android:layout_height="22.0dip"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/user_freeback" />
+
+                    <TextView
+                        style="@style/user_fragment_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/image_server"
+                        android:paddingLeft="20.0dip"
+                        android:text="@string/feedback" />
+
+                    <ImageView
+                        android:layout_width="@dimen/new_user_center_right_arrow_width"
+                        android:layout_height="@dimen/new_user_center_right_arrow_high"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="5.0dip"
+                        android:src="@drawable/go" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/esp_user_center_item_height"
+                android:layout_marginTop="8.0dip"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/esp_user_center_item_padding_left" >
+
+                    <ImageView
+                        android:id="@+id/image_choselanguage"
+                        android:layout_width="22.0dip"
+                        android:layout_height="22.0dip"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/user_lang" />
+
+                    <TextView
+                        style="@style/user_fragment_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/image_choselanguage"
+                        android:paddingLeft="20.0dip"
+                        android:text="@string/language_actionbar_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="30.0dip"
+                        android:text="简体中文"
+                        android:textColor="#ff787878"
+                        android:textSize="12.0sp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/new_user_center_right_arrow_width"
+                        android:layout_height="@dimen/new_user_center_right_arrow_high"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="5.0dip"
+                        android:src="@drawable/go" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/white" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="12dip"
+                    android:background="@color/div_line" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/esp_user_center_item_height"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/esp_user_center_item_padding_left" >
+
+                    <ImageView
+                        android:id="@+id/image_nickname"
+                        android:layout_width="22.0dip"
+                        android:layout_height="22.0dip"
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="2.0dip"
+                        android:src="@drawable/nick_name" />
+
+                    <TextView
+                        style="@style/user_fragment_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/image_nickname"
+                        android:paddingLeft="20.0dip"
+                        android:text="@string/change_nickname" />
+
+                    <ImageView
+                        android:layout_width="@dimen/new_user_center_right_arrow_width"
+                        android:layout_height="@dimen/new_user_center_right_arrow_high"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="5.0dip"
+                        android:src="@drawable/go" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/white" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="12dip"
+                    android:background="@color/div_line" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/esp_user_center_item_height"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/esp_user_center_item_padding_left" >
+
+                    <ImageView
+                        android:id="@+id/image_reset_pwd"
+                        android:layout_width="22.0dip"
+                        android:layout_height="22.0dip"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/user_pwd" />
+
+                    <TextView
+                        style="@style/user_fragment_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/image_reset_pwd"
+                        android:paddingLeft="20.0dip"
+                        android:text="@string/change_password_out" />
+
+                    <ImageView
+                        android:layout_width="@dimen/new_user_center_right_arrow_width"
+                        android:layout_height="@dimen/new_user_center_right_arrow_high"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="5.0dip"
+                        android:src="@drawable/go" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:background="@color/white" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="12dip"
+                    android:background="@color/div_line" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/esp_user_center_item_height"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/esp_user_center_item_padding_left" >
+
+                    <ImageView
+                        android:id="@+id/image_setting"
+                        android:layout_width="22.0dip"
+                        android:layout_height="22.0dip"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/other_device_setting" />
+
+                    <TextView
+                        style="@style/user_fragment_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/image_setting"
+                        android:paddingLeft="20.0dip"
+                        android:text="@string/other_device_setting" />
+
+                    <ImageView
+                        android:layout_width="@dimen/new_user_center_right_arrow_width"
+                        android:layout_height="@dimen/new_user_center_right_arrow_high"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="5.0dip"
+                        android:src="@drawable/go" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/esp_user_center_item_height"
+                android:layout_marginTop="8.0dip"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:clickable="true"
+                    android:paddingLeft="@dimen/esp_user_center_item_padding_left" >
+
+                    <ImageView
+                        android:id="@+id/image_now_pre"
+                        android:layout_width="22.0dip"
+                        android:layout_height="22.0dip"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/user_current_version" />
+
+                    <TextView
+                        android:id="@+id/currentversion"
+                        style="@style/user_fragment_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/image_now_pre"
+                        android:paddingLeft="20.0dip"
+                        android:text="@string/current_version" />
+
+                    <TextView
+                        android:id="@+id/new_tv_version"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="8.0dip"
+                        android:layout_toRightOf="@+id/currentversion"
+                        android:maxWidth="160dip"
+                        android:text="2.2.0.1851_20160918_100744" />
+
+                    <TextView
+                        style="@style/user_fragment_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="6.0dip"
+                        android:layout_toRightOf="@+id/new_tv_version"
+                        android:text="测试版"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:paddingRight="5.0dip"
+                        android:text="dsada"
+                        android:textColor="@color/red"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/white" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="12dip"
+                    android:background="@color/div_line" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/esp_user_center_item_height"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/esp_user_center_item_padding_left" >
+
+                    <ImageView
+                        android:id="@+id/image_aboutapp"
+                        android:layout_width="22.0dip"
+                        android:layout_height="22.0dip"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/user_about" />
+
+                    <TextView
+                        style="@style/user_fragment_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/image_aboutapp"
+                        android:paddingLeft="20.0dip" />
+
+                    <ImageView
+                        android:layout_width="@dimen/new_user_center_right_arrow_width"
+                        android:layout_height="@dimen/new_user_center_right_arrow_high"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="5.0dip"
+                        android:src="@drawable/go" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/esp_user_center_item_height"
+                    android:layout_marginTop="8.0dip"
+                    android:background="@color/white">
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:clickable="true"
+                        android:paddingLeft="@dimen/esp_user_center_item_padding_left" >
+
+                        <ImageView
+                            android:id="@+id/image_facebook"
+                            android:layout_width="22.0dip"
+                            android:layout_height="22.0dip"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/logo_facebook" />
+
+                        <TextView
+                            style="@style/user_fragment_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/image_facebook"
+                            android:paddingLeft="20.0dip"
+                            android:text="EWeLink@Facebook" />
+
+                        <TextView
+                            android:layout_width="50.0dip"
+                            android:layout_height="24.0dip"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="8.0dip"
+                            android:layout_marginRight="10.0dip"
+                            android:background="@drawable/shape_rectangle_blue_corner"
+                            android:gravity="center"
+                            android:maxWidth="160.0dip"
+                            android:text="Copy" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:background="@color/white" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dip"
+                        android:layout_marginLeft="12dip"
+                        android:background="@color/div_line" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/esp_user_center_item_height"
+                    android:background="@color/white">
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingLeft="@dimen/esp_user_center_item_padding_left" >
+
+                        <ImageView
+                            android:id="@+id/image_twitter_icon"
+                            android:layout_width="22.0dip"
+                            android:layout_height="22.0dip"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/logo_twitter" />
+
+                        <TextView
+                            style="@style/user_fragment_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/image_twitter_icon"
+                            android:paddingLeft="20.0dip"
+                            android:text="ewelinkchina@Twitter" />
+
+                        <TextView
+                            android:layout_width="50.0dip"
+                            android:layout_height="24.0dip"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="8.0dip"
+                            android:layout_marginRight="10.0dip"
+                            android:background="@drawable/shape_rectangle_blue_corner"
+                            android:gravity="center"
+                            android:maxWidth="160.0dip"
+                            android:text="Copy" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/esp_user_center_item_height"
+                android:layout_marginTop="8.0dip"
+                android:background="@color/white" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center" >
+
+                    <TextView
+                        style="@style/user_fragment_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/exit_logout"
+                        android:textColor="@color/scene_log_offline_alert" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

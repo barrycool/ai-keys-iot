@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>eWeLink-FAQ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style type="text/css">
+    <!--
+    .ewelinkli {  background-color: #fef8ee;
+        height: 40px;
+        border-bottom: solid 1px #e1e1e1;
+        line-height: 40px;
+        width: 87%;
+        float: left;
+        padding-left: 5%;
+        color: #696969;
+        font-size: 17px;
+    }
+    .ewelinkli_div{
+        width: 8%;
+        float: left;
+        line-height: 45px;
+        height: 40px;
+        background-color: #fef8ee;
+        border-bottom: solid 1px #e1e1e1;
+    }
+    .ewelinkborder{
+        border-bottom: 1px solid lightgray;
+    }
+    .ewelinkQ{
+        color: #f0971e;
+        font-size: 20px;
+        padding-left: 5%;
+        padding-right: 5%;
+        margin-bottom: 10px
+    }
+    .ewelinkA{
+        padding-left: 5%;
+        padding-right: 5%;
+        margin-bottom: 10px;
+    }
+
+    .ewelinkASpan{
+        color: #81b434;
+        font-size: 16px
+    }
+    .ewelinkAFSpan{
+        font-size: 16px;
+        color:#696969
+    }
+    .ewelinkAOSpan{
+        font-size: 16px;
+        color:#696969;
+        padding-left: 3%;
+        padding-right: 5%;
+    }
+
+    /*这里是设置CSS的样式内容*/
+    -->
+</style>
+<body style="width:100%;margin:0;padding:0;background-color:white;word-wrap: break-word;padding-bottom: 50px;" scroll="no">
+<div id="start" style="height:490px;padding-top: 5px;">
+    <div  class="ewelinkborder" style="border-top: 1px solid lightgray;">
+        <a href="#pair">
+            <div class="ewelinkli">
+                1.Failed to pair
+            </div>
+            <div class="ewelinkli_div">
+                <img style="height: 15px;" src="right.png">
+            </div>
+        </a>
+    </div>
+    <div>
+        <a href="#offline">
+            <div class="ewelinkli">
+                2.Device offline
+            </div>
+            <div class="ewelinkli_div">
+                <img style="height: 15px;" src="right.png">
+            </div>
+        </a>
+    </div>
+    <div>
+        <a href="#noadd">
+            <div class="ewelinkli">
+                3."Device owner is not clear..."
+            </div>
+            <div class="ewelinkli_div">
+                <img style="height: 15px;" src="right.png">
+            </div>
+        </a>
+    </div>
+    <div>
+        <a href="#code">
+            <div class="ewelinkli">
+                4.Failed to receive verification code
+            </div>
+            <div class="ewelinkli_div">
+                <img style="height: 15px;" src="right.png">
+            </div>
+        </a>
+    </div>
+    <div>
+        <a href="#forget">
+            <div class="ewelinkli">
+                5.Forget password
+            </div>
+            <div class="ewelinkli_div">
+                <img style="height: 15px;" src="right.png">
+            </div>
+        </a>
+    </div>
+    <div>
+        <a href="#ota">
+            <div class="ewelinkli">
+                6.Failed to upgrade firmware
+            </div>
+            <div class="ewelinkli_div">
+                <img style="height: 15px;" src="right.png">
+            </div>
+        </a>
+    </div>
+    <div>
+        <a href="#share">
+            <div class="ewelinkli">
+                7.Failed to share device
+            </div>
+            <div class="ewelinkli_div">
+                <img style="height: 15px;" src="right.png">
+            </div>
+        </a>
+    </div>
+    <div>
+        <a href="#account">
+            <div class="ewelinkli">
+                8.One account in different phones
+            </div>
+            <div class="ewelinkli_div">
+                <img style="height: 15px;" src="right.png">
+            </div>
+        </a>
+    </div>
+    <div>
+        <a href="#network">
+            <div class="ewelinkli">
+                9."Network Unavailable"
+            </div>
+            <div class="ewelinkli_div">
+                <img style="height: 15px;" src="right.png">
+            </div>
+        </a>
+    </div>
+    <div>
+        <a href="#auto">
+            <div class="ewelinkli">
+                10.Device auto turn on/off
+            </div>
+            <div class="ewelinkli_div">
+                <img style="height: 15px;" src="right.png">
+            </div>
+        </a>
+    </div>
+    <div>
+        <a href="#timer">
+            <div class="ewelinkli">
+                11.Schedules or timers don’t work
+            </div>
+            <div class="ewelinkli_div">
+                <img style="height: 15px;" src="right.png">
+            </div>
+        </a>
+    </div>
+    <div>
+        <a href="#power">
+            <div class="ewelinkli">
+                12.eWeLink permissions
+            </div>
+            <div class="ewelinkli_div">
+                <img style="height: 15px;" src="right.png">
+            </div>
+        </a>
+    </div>
+</div>
+<div id="pair" class="ewelinkborder">
+    <br>
+    <div class="ewelinkQ">1.Failed to pair</div>
+    <div class="ewelinkA"><span class="ewelinkASpan">A:</span>
+        <span class="ewelinkAFSpan">
+            1.If you have installed mobile security APP such as Mobile Manager or Mobile Safe Assistant, this kind of APPs may have prohibited some permissions of eWeLink. Sometimes the system will even prompt security warning, thus it leads to a failed search. To solve it, please access to this kind of App, make eWeLink as your trusted App, then go to permission settings, set all eWeLink permissions to Allowed.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            2.Your model is too far away from the router, take it closer and retry.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            3.Check if the device has auto-exited pairing mode in the pairing process.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            4.Try to pair with another WiFi network.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            5.Try to pair with another phone.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            6.Power off and on device, then try below:
+        </span><br>
+        <span class="ewelinkAOSpan">
+            ① If your model’s pairing led fast steadily blinks.Please go to Phone Settings-->Wi-Fi, find the WiFi starts with ITEAD ( ITEAD-10000XXXX), enter the password 12345678. If you failed to find ( ITEAD-10000XXXX) or when you enter the password, it says “Wrong Password”, your model may have hardware problem, please contact seller for help.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            ② If your model’s pairing led fast blinks 3 times and repeats.Please check if you have enabled “Wireless network internal isolation”. Enabling it will cause the App can’t access the device and failed to search the device. Please disable it.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            ③ If you are using GSM model, when you scan the QR code of the model, it displays “Invalid QR code”, please take a photo of the QR code, and enlarge it on your computer to scan it. Please make sure the model belongs to“eWeLink Supported” products.
+        </span>
+    </div>
+</div>
+<div id="offline" class="ewelinkborder"><br>
+    <div class="ewelinkQ">2.Device offline</div>
+    <div class="ewelinkA"><span class="ewelinkASpan">A:</span>
+        <span class="ewelinkAFSpan">
+            The newly added device needs 1-2 minutes to connect to your WiFi router and the Internet. If it keeps offline for a long time, please judge the problem by the LED blinking status.
+        </span><br><br>
+        <b>1.The LED quickly blinks one time and repeats (blinks once every 2s), which means the device has failed to connect to the router.</b><br>
+        <span class="ewelinkAFSpan">
+            ① Wrong WiFi Name or Password
+        </span><br>
+        <span class="ewelinkAFSpan">
+            You may have entered wrong WiFi name and password in the pairing process. Please delete the device and re-add. Please make sure you have entered them accurately and select remember password.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            ② Weak WiFi Signal
+        </span><br>
+        <span class="ewelinkAFSpan">
+            Your device may be too far away from the WiFi router, which causes a weak WiFi signal. Please take your device closer to the router, power off and power on the device.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            Note: our devices can’t connect to 5G WiFi, only 2.4G WiFi supported.
+        </span>
+        <span class="ewelinkAFSpan">
+            ③ Unstable Network
+        </span><br>
+        <span class="ewelinkAFSpan">
+            Your network may be unstable. When the network becomes normal, the device will be online automatically. If it failed to be online automatically, please power off and power on the device.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            ④ Router Errors
+        </span><br>
+        <span class="ewelinkAFSpan">
+            Your WiFi router failed to work due to some reason. When this happens, please delete your device from your account. Then follow below instructions.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            Take another phone to enable hotspot, then use your phone to connect the hotspot WiFi and add devices to eWeLink, if the device gets online successfully, it means that the problem is due to WiFi.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            If it failed, please follow below instructions.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            ⑤ Too Many Connections to One Router
+        </span><br>
+        <span class="ewelinkAFSpan">
+            You may have too many devices connecting to one router. Most of the routers have connection limit. Please disconnect other devices, then power off and restart your device.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            ⑥ Change DHCP Settings
+        </span><br>
+        <span class="ewelinkAFSpan">
+            You may have too many devices connecting to one router. Please reset DHCP address pool in router settings, then power off and restart the device to connect again.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            ⑦ MAC Address Prohibited
+        </span><br>
+        <span class="ewelinkAFSpan">
+            For some security reason, your MAC address may be filtered and prohibited. Under such a condition, you should remove it from the prohibited address list.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            ⑧ MAC Address Conflict
+        </span><br>
+        <span class="ewelinkAFSpan">
+            Close all other connected devices to this router and try again.
+        </span><br><br>
+        <span class="ewelinkAFSpan">
+            If you have checked all above settings have no problems, but still failed. Please restart your WiFi router. Still failed? please contact seller for help.
+        </span><br><br>
+        <b>2.The LED blinks once every 1s, your device is offline</b><br>
+        <span class="ewelinkAFSpan">
+            The device has successfully connected to the router but hasn’t been added to the user’s account. Please power off the device and restart, then wait for a while. If the device is still offline, please delete it and re-add.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            If you have deleted it and tried to re-add for several times but still failed, please try below:
+        </span><br>
+        <span class="ewelinkAFSpan">
+            Prepare another phone, enable its hotspot. Use your phone to connect the hotspot WiFi and add devices to eWeLink. If it gets online successfully, this means that the problem is due to WiFi. Please check your router settings.
+        </span><br>
+        <br>
+        <b>3.The LED quickly blinks twice and repeats, which means the device has connected to the router but failed to connect to the server. </b><br>
+        <span class="ewelinkAFSpan">
+            ① We are upgrading the server or there exists server error. If the server is running normally. Please check below:
+        </span><br>
+        <span class="ewelinkAFSpan">
+            ② Unable to Visit the Internet
+        </span><br>
+        <span class="ewelinkAFSpan">
+            If the extranet cannot be accessed, then use your phone or PC to visit the Internet. If successful, try to re-add your device. If you have stopped paying Internet fee or extending your network service, your can’t visit the Internet.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            ③ Bandwidth Occupied
+        </span><br>
+        <span class="ewelinkAFSpan">
+            You may have downloaded too many files at the same time, which occupied most of the bandwidth, thus your device did not have enough bandwidth to connect to the server. If so, please stop downloading and try to re-add your device.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            ④ More than one router with the same WiFi SSID (name)
+        </span><br>
+        <span class="ewelinkAFSpan">
+            You may have more than one router with the same SSID, and your device may have connected to the non-networked one. In this case, you should reset your router SSID and choose the networked one to connect. Then try to connect your device again.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            ⑤ More than one DHCP server under one network
+        </span><br>
+        <span class="ewelinkAFSpan">
+            There may be errors existing between router topology. In this case, please check the connection way between routers, then try to re-add your device.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            ⑥ ARP Attacked
+        </span><br>
+        <span class="ewelinkAFSpan">
+            If you have checked all above and found them no problems, maybe some terminal of the local area network you are locating has affected ARP virus. We suggest you to manually bind gateway and MAC address, then try to re-add your device.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            ⑦ Firewall Settings
+        </span><br>
+        <span class="ewelinkAFSpan">
+            You may have opened firewall or some security softwares. In this case, please temporarily close them and try to re-add your device.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            After making all above checks and find no problems but still failed, the possible problem should be DNS error. Please manually change DNS server address to 119.29.29.29. Then try to re-add your device.
+        </span><br>
+        <span class="ewelinkAFSpan">
+            ⑧ IP address conflict
+        </span><br>
+        <span class="ewelinkAFSpan">
+            Please close all other connections that connect to the router. Then try to re-add your device.
+        </span><br><br>
+        <b>4.Firmware upgradation cause offline：</b><br>
+        <div>
+            In some conditions, upgrading firmware will cause MAC address change, then your device will become offline. Below is the firmware list that will cause MAC address change.
+        </div>
+        <div style="list-style-type: none" class="ewelinkAFSpan">
+            <li>Firmware version     MAC address change when</li>
+            <li>FWSW-01      Upgrade to versions higher than 1.5.2</li>
+            <li>FWSW-0185    Upgrade to versions higher than 1.5.2</li>
+            <li>FWSWES-04    Upgrade to versions higher than 1.3.0</li>
+            <li>FWSW-01P     Upgrade to versions higher than 2.0.2</li>
+            <li>FWSW-01TH    Upgrade to versions higher than 2.0.1</li>
+        </div><br><br>
+        <span class="ewelinkAFSpan">
+            When this happens, please bind your device’s MAC address to your router’s binding list, as follows: Go to Router Settings -> Close MAC Filter -> Connect your device to the router -> Add the device MAC address to the MAC Binding list -> Enable MAC Filter
+        </span><br>
+        <span class="ewelinkAFSpan">
+            If you don’t know about your firmware well,please submit a feedback on the App eWeLink.
+        </span>
+    </div>
+</div>
+<div id="noadd" class="ewelinkborder"><br>
+    <div class="ewelinkQ">3."Device owner is not clear..."</div>
+    <div class="ewelinkA"><span class="ewelinkASpan">A:</span>
+        <span class="ewelinkAFSpan">
+            One device one owner. So make sure you have added it to just one account.</span><br>
+        <span class="ewelinkAOSpan">
+            &nbsp;1.This message comes even your device is brand-new and it’s the first time to add it,please contact seller for help.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            &nbsp;2.If you have added this device with other account before, please log in the other account to delete the device first. Then re-add it with your current account.
+        </span>
+    </div>
+</div>
+<div id="code" class="ewelinkborder"><br>
+    <div class="ewelinkQ">4.Failed to receive verification code</div>
+    <div class="ewelinkA"><span class="ewelinkASpan">A:</span>
+        <span class="ewelinkAFSpan">
+            1.Check if the country code you select is correct, check if the phone number/ email address you entered is correct.</span><br>
+        <span class="ewelinkAOSpan">
+            2.Check if the verification code is in your junk mailbox or in spam SMS box. You may disable the blocking and send again.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            3.Check if you have clicked “send”. (V2.4.0 and higher versions auto-send the verification code)
+        </span><br>
+        <span class="ewelinkAOSpan">
+            4.If still failed, please submit a feedback on the App.
+        </span>
+    </div>
+</div>
+<div id="forget" class="ewelinkborder"><br>
+    <div class="ewelinkQ">5.Forget password</div>
+    <div class="ewelinkA"><span class="ewelinkASpan">A:</span>
+        <span class="ewelinkAFSpan">
+            Go to the login interface, click “Reset Password”. Enter your account to reset the password.</span>
+    </div>
+</div>
+<div id="ota" class="ewelinkborder"><br>
+    <div class="ewelinkQ">6.Failed to upgrade firmware</div>
+    <div class="ewelinkA"><span class="ewelinkASpan">A:</span>
+        <span class="ewelinkAFSpan">
+            Please try for several times. If failed, please follow below operations:
+        </span><br><br>
+        <span class="ewelinkAOSpan">
+            1.Delete the device from your account.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            2.Take another phone, enable its hotspot.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            3.Connect the hotspot WiFi with your phone. Re-add the model, note that you have to enter the hotspot WiFi info correctly during adding process.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            4.After adding it successfully, upgrade the firmware.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            5.After upgrading successfully. Delete your device from your account.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            6.Switch your WiFi to your previous home WiFi.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            7.Re-add the device to App via the home WiFi.
+        </span><br><br>
+        <span class="ewelinkAOSpan">
+            Once you change the WiFi, you’ll need to delete and re-add. Or the device can’t send data to the server successfully.
+        </span>
+    </div>
+</div>
+<div id="share" class="ewelinkborder"><br>
+    <div class="ewelinkQ">7.Failed to share device</div>
+    <div class="ewelinkA"><span class="ewelinkASpan">A:</span>
+        <span class="ewelinkAFSpan">
+            1.The account you share to has not been logged in.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            &nbsp;2.The account you share to has been logged in, but no App process.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            &nbsp;3.Your network or the other user’s network is disconnected or not stable.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            &nbsp;4.iOS: the other user has launched the App and logged in, but his phone screen is locked off(the screen is not lightened).
+        </span><br>
+        <span class="ewelinkAOSpan">
+            We don’t support to share to cross continent accounts. In the same continent, users can share between email account, mobile phone accounts and third-party accounts.
+        </span>
+    </div>
+</div>
+<div id="account" class="ewelinkborder"><br>
+    <div class="ewelinkQ">8.Use one account in different phones/ tablets </div>
+    <div class="ewelinkA"><span class="ewelinkASpan">A:</span>
+        <span class="ewelinkAFSpan">
+            We don’t suggest to use the same account on different phones or tablets. For security issue, each time you can only log in your account in one device. Please register other accounts to share.
+        </span><br>
+    </div>
+</div>
+<div id="network" class="ewelinkborder">
+    <div class="ewelinkQ">9.The App shows "Network Unavailable"</div>
+    <div class="ewelinkA"><span class="ewelinkASpan">A:</span>
+        <span class="ewelinkAFSpan">
+            Please complain to the network operator. Ask them why can not parse these two domain names: cn-long.coolkit.cc and api.coolkit.cc. Let them parse the two domain names.
+        </span><br>
+    </div>
+</div>
+<div id="auto" class="ewelinkborder"><br>
+    <div class="ewelinkQ">10.Device auto turn on/off</div>
+    <div class="ewelinkA"><span class="ewelinkASpan">A:</span>
+        <span class="ewelinkAFSpan">
+            1.Please check if you have shared it to other users. Other users can turn on/off the device you shared. You may have created timers or scenes to trigger on/off the device.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            &nbsp;2.Delete your device from your account. Check if the model auto turn on/off by itself. If the problem persists, Please contact seller for help.
+        </span>
+    </div>
+</div>
+<div id="timer" class="ewelinkborder"><br>
+    <div class="ewelinkQ">11.Schedules or timers don’t work</div>
+    <div class="ewelinkA"><span class="ewelinkASpan">A:</span>
+        <span class="ewelinkAFSpan">
+            1.The timers are successfully created, and your model has power and connects to a normal network, the timers don’t run at specified time. This means your model has hardware problem, please contact seller for help.</span><br>
+        <span class="ewelinkAOSpan">
+            2.The preset timers can work normally as long as your model has power, even your network is disconnected. But you can’t see the device status changes on the App unless network is OK. Make sure when you creating the timers, your network is OK. </span><br>
+        <span class="ewelinkAOSpan">
+            3.The model is powered off, and then the network disconnects. The timers will work if you power the model up and get network restored. But you can’t see the device status changes on the App until network is OK.
+        </span><br>
+        <span class="ewelinkAOSpan">
+            4.The model’s network is disconnected, and then it gets power off. The timers will work if you power the model up and get network restored. But you can’t see the device status changes on the App until network is OK.
+        </span>
+    </div>
+</div>
+<div id="power" class="ewelinkborder"><br>
+    <div class="ewelinkQ">12.eWeLink permissions</div>
+    <div class="ewelinkA"><span class="ewelinkASpan">A:</span>
+        <span class="ewelinkAFSpan">
+           About eWeLink permissions, please refer to <a href="https://www.itead.cc/blog/ewelink-app-permissions-explained">https://www.itead.cc/blog/ewelink-app-permissions-explained</a>
+        </span><br><br>
+        <span><b style="color: red">If the above solutions can’t solve your problem, please click “Feedback” on the App to describe your problem in details and submit. Thanks very much for supporting eWeLink. We’ll try our best to help you.</b></span><br><br>
+    </div>
+</div>
+<div id="floatad" style="position:fixed;z-index:999;width:70px;height:70px; background:white;top:400px;right:5px;border-radius: 15px">
+    <a href="#start"><img src="top.png" style="height: 70px;width: 70px;"></a>
+</div>
+</body>
+</html>

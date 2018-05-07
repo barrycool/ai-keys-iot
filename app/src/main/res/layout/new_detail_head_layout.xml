@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/actionbar_heigh" >
+
+    <ImageView
+        style="@style/actionbar_image"
+        android:scaleType="centerInside"
+        android:src="@drawable/detail_back" />
+
+    <TextView
+        android:id="@id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxWidth="200.0dip"
+        android:singleLine="true"
+        android:text="智能设备02智能设备02智能设备02"
+        android:textColor="@color/white"
+        android:textSize="22.0sp" />
+
+    <ImageView
+        android:id="@id/iv_setting"
+        style="@style/actionbar_image"
+        android:layout_alignParentRight="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/detail_menu" />
+
+</RelativeLayout>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:weightSum="1.0" >
+
+    <include
+        android:id="@id/actionbar"
+        layout="@layout/activity_toolbar" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30.0dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/add_device_navigate_dots"
+            android:background="@drawable/dot_gray"
+            android:text="1" />
+
+        <TextView
+            style="@style/add_device_navigate_dots_select"
+            android:layout_marginLeft="10.0dip"
+            android:background="@drawable/dot_blue"
+            android:text="2" />
+
+        <TextView
+            style="@style/add_device_navigate_dots"
+            android:layout_marginLeft="10.0dip"
+            android:background="@drawable/dot_gray"
+            android:text="3" />
+
+        <TextView
+            style="@style/add_device_navigate_dots"
+            android:layout_marginLeft="10.0dip"
+            android:background="@drawable/dot_gray"
+            android:text="4" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/actionbar"
+        android:layout_weight="1.0"
+        android:paddingLeft="@dimen/di_left"
+        android:paddingRight="@dimen/di_right" >
+
+        <TextView
+            android:id="@+id/tv_config_title"
+            style="@style/page_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20.0dip"
+            android:gravity="center"
+            android:text="@string/config_discover_device"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_config_des"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_config_title"
+            android:layout_marginBottom="16.0dip"
+            android:layout_marginTop="20.0dip"
+            android:gravity="center"
+            android:text="@string/choose_wifi"
+            android:textColor="@color/switch_channel_color"
+            android:textSize="18.0sp" />
+
+        <TextView
+            android:id="@+id/iv_net"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_config_des"
+            android:layout_centerHorizontal="true"
+            android:drawableTop="@drawable/pic_router"
+            android:gravity="center"
+            android:text="@string/only_support_24"
+            android:textSize="13.0sp" />
+
+        <RelativeLayout
+            android:id="@+id/iv_setting"
+            android:layout_width="fill_parent"
+            android:layout_height="43.0dip"
+            android:layout_below="@+id/iv_net"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginRight="20.0dip"
+            android:layout_marginTop="14.0dip"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/tv_wifi_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:text="@string/wifi_name"
+                android:textColor="@color/font_black_alpha"
+                android:textSize="16.0sp" />
+
+            <TextView
+                android:id="@+id/tv_ssid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10.0dip"
+                android:layout_toRightOf="@+id/tv_wifi_name"
+                android:background="@null"
+                android:singleLine="true"
+                android:text="wlan"
+                android:textColor="@color/font_black_alpha"
+                android:textSize="16.0sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="40.0dip"
+                android:paddingRight="10.0dip"
+                android:paddingTop="14.0dip"
+                android:src="@drawable/drop" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_ul_1"
+            android:layout_width="fill_parent"
+            android:layout_height="1.0dip"
+            android:layout_below="@+id/iv_setting"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:background="@color/gray" />
+
+        <RelativeLayout
+            android:id="@+id/rl_pwd"
+            android:layout_width="fill_parent"
+            android:layout_height="40.0dip"
+            android:layout_below="@+id/tv_ul_1"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginRight="20.0dip"
+            android:gravity="bottom" >
+
+            <TextView
+                android:id="@+id/tv_wifi_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:text="@string/wifi_pwd"
+                android:textColor="@color/font_black_alpha"
+                android:textSize="16.0sp" />
+
+            <EditText
+                android:id="@+id/tv_pwd"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10.0dip"
+                android:layout_toRightOf="@+id/tv_wifi_pwd"
+                android:background="@null"
+                android:inputType="textPassword"
+                android:textColor="@color/font_black_alpha"
+                android:textSize="16.0sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_ul_2"
+            android:layout_width="fill_parent"
+            android:layout_height="1.0dip"
+            android:layout_below="@+id/rl_pwd"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/alert_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_ul_2"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:textColor="@color/red" />
+
+        <LinearLayout
+            android:id="@+id/ll_wifi_line"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/alert_error"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginRight="20.0dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/cb_save"
+                style="@style/CustomSingleCheckboxTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:paddingBottom="10.0dip"
+                android:paddingLeft="10.0dip"
+                android:paddingTop="10.0dip"
+                android:text="@string/remember_wifi_password"
+                android:textColor="@color/switch_channel_color"
+                android:textSize="@dimen/page_des" />
+
+            <TextView
+                android:id="@+id/tv_change_net"
+                style="@style/page_des"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|right"
+                android:text="@string/change_net"
+                android:textColor="@color/font_blue_alpha" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/page_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_wifi_line"
+            android:paddingBottom="5.0dip"
+            android:textColor="@color/red" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/bt_confirm"
+        style="@style/BottomLongBlueButton"
+        android:layout_width="fill_parent"
+        android:text="@string/next" />
+
+</LinearLayout>

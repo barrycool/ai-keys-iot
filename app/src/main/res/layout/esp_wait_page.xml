@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:weightSum="11.0" >
+
+    <include
+        android:id="@id/actionbar"
+        layout="@layout/activity_toolbar" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30.0dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/add_device_navigate_dots"
+            android:background="@drawable/dot_gray"
+            android:text="1" />
+
+        <TextView
+            style="@style/add_device_navigate_dots"
+            android:layout_marginLeft="10.0dip"
+            android:background="@drawable/dot_gray"
+            android:text="2" />
+
+        <TextView
+            style="@style/add_device_navigate_dots_select"
+            android:layout_marginLeft="10.0dip"
+            android:background="@drawable/dot_blue"
+            android:text="3" />
+
+        <TextView
+            style="@style/add_device_navigate_dots"
+            android:layout_marginLeft="10.0dip"
+            android:background="@drawable/dot_gray"
+            android:text="4" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20.0dip"
+        android:text="@string/pairing"
+        android:textColor="@color/switch_channel_color" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="7.0"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/di_left"
+        android:weightSum="1.0" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20.0dip"
+            android:src="@drawable/pic_pairing" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="8.0dip"
+                android:gravity="center"
+                android:text="@string/sure_device_closer_wifi"
+                android:textColor="@color/switch_channel_color"
+                android:textSize="12.0sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="30.0dip"
+            android:paddingRight="30.0dip"
+            android:weightSum="1.0" >
+
+<!--             <elink.widget.MPatternProgressBar
+                android:id="@+id/mpb_wait_paring_progress"
+                android:layout_width="fill_parent"
+                android:layout_height="10.0dip"
+                android:layout_gravity="center"
+                android:layout_weight="1.0" /> -->
+            <ProgressBar
+                android:id="@+id/pb_wait_paring_progress"
+                android:layout_width="fill_parent"
+                android:layout_height="10.0dip"
+                android:layout_gravity="center"
+                android:layout_weight="1.0"
+                />
+
+            <TextView
+                style="@style/page_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5.0dip"
+                android:textColor="@color/switch_channel_color"
+                android:textSize="@dimen/page_title" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="4.0" >
+
+        <TextView
+            style="@style/page_des"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/connected_device_wait"
+            android:textColor="@color/switch_channel_color"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/di_left"
+            android:layout_marginRight="@dimen/di_right"
+            android:background="@null"
+            android:text="@string/cancel"
+            android:textColor="@color/switch_channel_color"
+            android:textSize="18.0sp" />
+    </RelativeLayout>
+
+</LinearLayout>

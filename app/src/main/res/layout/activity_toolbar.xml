@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/actionbar"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/actionbar_heigh"
+    android:background="@color/actionbar_color" >
+
+    <ImageView
+        android:id="@+id/add_device_back"
+        style="@style/actionbar_image"
+        android:scaleType="center"
+        android:src="@drawable/actionbar_back" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/add_device"
+        android:textColor="@color/white"
+        android:textSize="@dimen/actionbar_textsize" />
+
+</RelativeLayout>

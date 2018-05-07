@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/actionbar"
+        layout="@layout/activity_toolbar" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/di_left"
+        android:paddingRight="@dimen/di_right"
+        android:weightSum="1.0" >
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:weightSum="5.0" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30.0dip"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/add_device_navigate_dots"
+                        android:background="@drawable/dot_gray"
+                        android:text="1" />
+
+                    <TextView
+                        style="@style/add_device_navigate_dots"
+                        android:layout_marginLeft="10.0dip"
+                        android:background="@drawable/dot_gray"
+                        android:text="2" />
+
+                    <TextView
+                        style="@style/add_device_navigate_dots"
+                        android:layout_marginLeft="10.0dip"
+                        android:background="@drawable/dot_gray"
+                        android:text="3" />
+
+                    <TextView
+                        style="@style/add_device_navigate_dots_select"
+                        android:layout_marginLeft="10.0dip"
+                        android:background="@drawable/dot_blue"
+                        android:text="4" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/page_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginTop="30.0dip"
+                    android:gravity="center"
+                    android:text="@string/name_device"
+                    android:textColor="@color/switch_channel_color" />
+
+                <ImageView
+                    android:layout_width="@dimen/set_name_pic_witdh"
+                    android:layout_height="@dimen/set_name_pic_heigh"
+                    android:layout_margin="4.0dip"
+                    android:background="@drawable/pic_name_device" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.0dip"
+                    android:layout_weight="2.0" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30.0dip"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <EditText
+                        style="@style/page_title"
+                        android:layout_width="200.0dip"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:drawableLeft="@drawable/ic_name_device"
+                        android:drawablePadding="5.0dip"
+                        android:text="@string/my_smart_socketone"
+                        android:textColor="@color/lv_title" />
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.39999998dip"
+                        android:layout_marginTop="4.0dip"
+                        android:background="@color/lv_title" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/red" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.0dip"
+                    android:layout_weight="3.0" />
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/btn_rectangle_height"
+            android:layout_marginBottom="@dimen/confirm_pair_margin_bottom"
+            android:layout_marginLeft="@dimen/di_left"
+            android:layout_marginRight="@dimen/di_left"
+            android:layout_marginTop="@dimen/di_left"
+            android:background="@drawable/btn_rectangle_bg_blue"
+            android:gravity="center"
+            android:text="@string/device_add_finish"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize_large" />
+    </LinearLayout>
+
+</LinearLayout>

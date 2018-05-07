@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="esp_main_exit_message">\nDo you want to exit?\n</string>
+    <string name="esp_main_exiting">Exiting&#8230;</string>
+
+    <string name="esp_login_account">Enter Email</string>
+    <string name="esp_login_password">Enter Password</string>
+    <string name="esp_login_login">Login</string>
+    <string name="esp_login_register">Register</string>
+    <string name="esp_login_third_party"><u>Third-party login</u></string>
+    <string name="esp_login_forget_password"><u>Forget Password</u></string>
+
+    <string name="esp_register_account">User Name</string>
+    <string name="esp_register_email">Email</string>
+    <string name="esp_register_input_password">Enter at least 6 words password</string>
+    <string name="esp_register_input_password_again">Enter password again</string>
+    <string name="esp_register_register">Register</string>
+    <string name="esp_register_account_email_toast">Please enter User name and Email</string>
+    <string name="esp_register_account_email_format_error">Email format error</string>
+    <string name="esp_register_same_password_toast">Please enter same password</string>
+    <string name="esp_register_result_success">Register success</string>
+    <string name="esp_register_phone">Phone number</string>
+    <string name="esp_register_captcha_code">Captcha code</string>
+    <string name="esp_register_get_sms_captcha_code">Get Sms captcha code</string>
+    <string name="esp_register_with_email"><u>Register with Email</u></string>
+    <string name="esp_register_with_phone"><u>Register with phone number</u></string>
+    <string name="esp_register_phone_number_toast">Please input phone number</string>
+    <string name="esp_register_captcha_code_toast">Please input captcha code</string>
+    <string name="esp_register_get_sms_captcha_code_again">Get Sms captcha code after %1$d seconds</string>
+
+    <string name="esp_reset_password">Reset Password</string>
+    <string name="esp_reset_password_email_hint">Please input Email</string>
+
+</resources>
+<!-- 
+&#8230;   =   ...
+%%        =   %
+\'        =   '
+-->

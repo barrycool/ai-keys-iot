@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/devicelist_offline" >
+
+    <include
+        android:id="@+id/layout_head"
+        layout="@layout/new_detail_head_layout" />
+
+    <TextView
+        android:id="@+id/tv_error_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_head"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:drawablePadding="4.0dip"
+        android:drawableRight="@drawable/device_offline_icon"
+        android:gravity="center"
+        android:textColor="@color/upgrade_orange"
+        android:textSize="12.0sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_title"
+        android:layout_marginLeft="12.0dip"
+        android:background="@drawable/upgrade_bg"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="12.0sp"
+        android:visibility="gone" />
+
+    <include layout="@layout/new_detail_factory_model" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" >
+
+        <ImageView
+            android:id="@+id/iv_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/dimming_lamp_detail_on" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_switch"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="44.0dip"
+            android:layout_marginTop="24.0dip" >
+
+            <ImageView
+                android:id="@+id/iv_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10.0dip"
+                android:src="@drawable/dimming_lamp_detail_bright_small" />
+
+            <SeekBar
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_toLeftOf="@+id/iv_bright"
+                android:layout_toRightOf="@+id/iv_dark"
+                android:max="90"
+                android:maxHeight="3.0dip"
+                android:minHeight="3.0dip"
+                android:progress="0"
+                android:progressDrawable="@drawable/layout_aromatherapy_seekbar"
+                android:thumb="@drawable/detail_light_belt_bright_on"
+                android:thumbOffset="0.0dip" />
+
+            <ImageView
+                android:id="@+id/iv_bright"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/dimming_lamp_detail_bright_big" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <include layout="@layout/detail_bottom_support_duration_layout" />
+
+</RelativeLayout>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <include
+        android:id="@+id/action_bar"
+        layout="@layout/activity_toolbar" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_confirm_pair_state_next"
+        android:layout_below="@+id/action_bar"
+        android:layout_marginTop="28.0dip"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/di_left"
+        android:paddingRight="@dimen/di_right" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/add_device_navigate_dots_select"
+                android:background="@drawable/dot_blue"
+                android:text="1" />
+
+            <TextView
+                style="@style/add_device_navigate_dots"
+                android:layout_marginLeft="10.0dip"
+                android:background="@drawable/dot_gray"
+                android:text="2" />
+
+            <TextView
+                style="@style/add_device_navigate_dots"
+                android:layout_marginLeft="10.0dip"
+                android:background="@drawable/dot_gray"
+                android:text="3" />
+
+            <TextView
+                style="@style/add_device_navigate_dots"
+                android:layout_marginLeft="10.0dip"
+                android:background="@drawable/dot_gray"
+                android:text="4" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/di_left"
+                android:paddingRight="@dimen/di_right" >
+
+                <TextView
+                    style="@style/page_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16.0dip"
+                    android:gravity="center"
+                    android:text="@string/confirm_to_state_pair"
+                    android:textColor="@color/switch_channel_color" />
+
+                <TextView
+                    style="@style/page_des"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/confirm_pair_padding_secondly"
+                    android:layout_marginRight="@dimen/confirm_pair_padding_secondly"
+                    android:layout_marginTop="24.0dip"
+                    android:lineSpacingExtra="8.0dip"
+                    android:text="@string/longpress_to_state_pair"
+                    android:textColor="@color/switch_channel_color" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/confirm_pair_padding_secondly"
+                    android:layout_marginRight="@dimen/confirm_pair_padding_secondly"
+                    android:layout_marginTop="2.0dip"
+                    android:background="@drawable/bg_rectangle_box"
+                    android:paddingBottom="15.0dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="40.0dip" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pair_confirm_pic_center" />
+
+                        <ImageView
+                            android:id="@+id/tv_state_confirm_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="6.0dip"
+                            android:src="@drawable/animlist_dot_online_offline" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!--
+                <RelativeLayout
+                    android:id="@+id/gsm_device"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/confirm_pair_padding_secondly"
+                    android:layout_marginRight="@dimen/confirm_pair_padding_secondly"
+                    android:background="@drawable/bg_rectangle_box"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="20.0dip" >
+
+                    <TextView
+                        android:id="@+id/gsm_device_select"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40.0dip" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20.0dip"
+                        android:text="@string/pair_gsm_device" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/nest_device"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/confirm_pair_padding_secondly"
+                    android:layout_marginRight="@dimen/confirm_pair_padding_secondly"
+                    android:background="@drawable/bg_rectangle_box"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="20.0dip" >
+
+                    <TextView
+                        android:id="@+id/nest_device_select"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40.0dip" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20.0dip"
+                        android:text="@string/pair_nest_device" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/wrist_device"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/confirm_pair_padding_secondly"
+                    android:layout_marginRight="@dimen/confirm_pair_padding_secondly"
+                    android:background="@drawable/bg_rectangle_box"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="20.0dip"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/wrist_device_select"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40.0dip" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20.0dip"
+                        android:text="添加亚马逊手环" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/yingshi_device"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/confirm_pair_padding_secondly"
+                    android:layout_marginRight="@dimen/confirm_pair_padding_secondly"
+                    android:background="@drawable/bg_rectangle_box"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="20.0dip" >
+
+                    <TextView
+                        android:id="@+id/yingshi_device_select"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40.0dip" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20.0dip"
+                        android:text="@string/ez_camera" />
+                </RelativeLayout>
+                -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10.0dip"
+                    android:text="@string/other_pair_instruction"
+                    android:textColor="@color/font_blue_alpha"
+                    android:textSize="@dimen/page_des"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_confirm_pair_state_next"
+        style="@style/BottomLongBlueButton"
+        android:layout_width="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_rectangle_bg_blue"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_large" />
+
+</RelativeLayout>
