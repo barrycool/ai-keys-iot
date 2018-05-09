@@ -21,6 +21,7 @@ public class PairFailActivity extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PairFailActivity.this, AddDeviceStep2.class));
+                finish();
             }
         });
 
@@ -29,6 +30,7 @@ public class PairFailActivity extends Activity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PairFailActivity.this, AddDeviceStep2.class));
+                finish();
             }
         });
     }

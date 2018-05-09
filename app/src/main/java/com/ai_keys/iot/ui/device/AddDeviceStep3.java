@@ -46,7 +46,7 @@ public class AddDeviceStep3 extends Activity{
 
 	private Timer progress_timer = new Timer();
 	private TimerTask progress_task;
-	private int max_wait_time = 180; //s
+	private int max_wait_time = 60; //s
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -232,7 +232,7 @@ public class AddDeviceStep3 extends Activity{
 
 		@Override
 		protected void onPreExecute() {
-			mProgressDialog = new ProgressDialog(AddDeviceStep3.this);
+			/*mProgressDialog = new ProgressDialog(AddDeviceStep3.this);
 			mProgressDialog
 					.setMessage("Esptouch is configuring, please wait for a moment...");
 			mProgressDialog.setCanceledOnTouchOutside(false);
@@ -263,9 +263,9 @@ public class AddDeviceStep3 extends Activity{
 							}
 						}
 					});
-			//mProgressDialog.show();
-			//mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
-					//.setEnabled(false);
+			mProgressDialog.show();
+			mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+					.setEnabled(false);*/
 		}
 
 		@Override
@@ -294,7 +294,7 @@ public class AddDeviceStep3 extends Activity{
 
 		@Override
 		protected void onPostExecute(List<IEsptouchResult> result) {
-			mProgressDialog.show();
+			/*mProgressDialog.show();
 			mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
 					.setEnabled(true);
 			mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setText(
@@ -302,7 +302,7 @@ public class AddDeviceStep3 extends Activity{
 			if (result == null) {
 				mProgressDialog.setMessage("Create Esptouch task failed, the esptouch port could be used by other thread");
 				return;
-			}
+			}*/
 
 			IEsptouchResult firstResult = result.get(0);
 			// check whether the task is cancelled and no results received
@@ -330,13 +330,17 @@ public class AddDeviceStep3 extends Activity{
 						sb.append("\nthere's " + (result.size() - count)
 								+ " more result(s) without showing\n");
 					}
-					mProgressDialog.setMessage(sb.toString());
-					startActivity(new Intent(AddDeviceStep3.this, AddDeviceStep4.class));
+					//mProgressDialog.setMessage(sb.toString());
+					Intent intent = new Intent(AddDeviceStep3.this, AddDeviceStep4.class);
+					intent.putExtra("deviceId", result.get(0).getBssid());
+					startActivity(intent);
 				} else {
-					mProgressDialog.setMessage("Esptouch fail");
+					//mProgressDialog.setMessage("Esptouch fail");
 					startActivity(new Intent(AddDeviceStep3.this, PairFailActivity.class));
 				}
 			}
+
+			finish();
 		}
 	}
 }
