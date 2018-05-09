@@ -22,6 +22,7 @@ import com.ai_keys.iot.net.HttpManager;
 import com.ai_keys.iot.net.HttpManagerInterface;
 import com.ai_keys.iot.tools.Constant;
 import com.ai_keys.iot.tools.XLogger;
+import com.ai_keys.iot.ui.usercenter.AboutAiKeyActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -81,6 +82,11 @@ public class DeviceAllFragment extends Fragment{
 		@Override
 		public void onWifiClick(int position) {
 			
+		}
+
+		@Override
+		public void onItemClick(int position) {
+			startActivity(new Intent(getActivity(), DeviceSettingActivity.class));
 		}
 	};
 	

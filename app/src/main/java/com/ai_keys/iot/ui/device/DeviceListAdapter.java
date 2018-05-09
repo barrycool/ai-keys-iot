@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ai_keys.iot.R;
@@ -34,6 +35,7 @@ public class DeviceListAdapter extends BaseAdapter{
 		void onDeleteClick(int position);
 		void onClockClick(int position);
 		void onWifiClick(int position);
+		void onItemClick(int position);
 	}
 	
 	@Override
@@ -55,7 +57,7 @@ public class DeviceListAdapter extends BaseAdapter{
 	}
 	
 	class ViewHolder{
-		LinearLayout listview_ll;
+		RelativeLayout device_item;
 		ImageView switch_img;
 		ImageView wifi_img;
 		ImageView clock_img;
@@ -76,7 +78,7 @@ public class DeviceListAdapter extends BaseAdapter{
 			mHolder.delete_img = (ImageView) convertView.findViewById(R.id.device_delete);
 			mHolder.device_name = (TextView) convertView.findViewById(R.id.device_name);
 			mHolder.device_status = (TextView) convertView.findViewById(R.id.device_status);
-			
+			mHolder.device_item = (RelativeLayout) convertView.findViewById(R.id.device_item);
 			convertView.setTag(mHolder);
 		}else{
 			mHolder = (ViewHolder) convertView.getTag();
@@ -122,6 +124,13 @@ public class DeviceListAdapter extends BaseAdapter{
 			@Override
 			public void onClick(View v) {
 				mListClickListener.onClockClick(position);
+			}
+		});
+
+		mHolder.device_item.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				mListClickListener.onItemClick(position);
 			}
 		});
 		
