@@ -44,9 +44,9 @@ public class AddDeviceStep3 extends Activity{
 	private IEsptouchResult mIEsptouchResult;
 	private Intent mIntent;
 
-	private Timer timer = new Timer();
-	private TimerTask task;
-	private int max_wait_time = 40; //s
+	private Timer progress_timer = new Timer();
+	private TimerTask progress_task;
+	private int max_wait_time = 180; //s
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,18 +60,18 @@ public class AddDeviceStep3 extends Activity{
 		progressBar.setProgress(0);
 		progressBar.setMax(max_wait_time);
 
-		task = new TimerTask() {
+		progress_task = new TimerTask() {
 			@Override
 			public void run() {
 				if (progressBar.getProgress() < max_wait_time) {
 					progressBar.setProgress(progressBar.getProgress() + 1);
 				}
 				else {
-					timer.cancel();
+					progress_timer.cancel();
 				}
 			}
 		};
-		timer.schedule(task, 0, 1000);
+		progress_timer.schedule(progress_task, 0, 1000);
 
 		ImageView IV_back = (ImageView) findViewById(R.id.add_device_back);
 		IV_back.setOnClickListener(new View.OnClickListener() {
@@ -85,11 +85,14 @@ public class AddDeviceStep3 extends Activity{
 		textView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				if(mTask != null) {
+					mTask.cancelEsptouch();
+				}
 				startActivity(new Intent(AddDeviceStep3.this, EspMainActivity.class));
 			}
 		});
 
-		//doEspTouch();
+		doEspTouch();
 	}
 
 	private void doEspTouch()
@@ -260,9 +263,9 @@ public class AddDeviceStep3 extends Activity{
 							}
 						}
 					});
-			mProgressDialog.show();
-			mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
-					.setEnabled(false);
+			//mProgressDialog.show();
+			//mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+					//.setEnabled(false);
 		}
 
 		@Override
@@ -291,6 +294,7 @@ public class AddDeviceStep3 extends Activity{
 
 		@Override
 		protected void onPostExecute(List<IEsptouchResult> result) {
+			mProgressDialog.show();
 			mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
 					.setEnabled(true);
 			mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setText(
@@ -327,8 +331,10 @@ public class AddDeviceStep3 extends Activity{
 								+ " more result(s) without showing\n");
 					}
 					mProgressDialog.setMessage(sb.toString());
+					startActivity(new Intent(AddDeviceStep3.this, AddDeviceStep4.class));
 				} else {
 					mProgressDialog.setMessage("Esptouch fail");
+					startActivity(new Intent(AddDeviceStep3.this, PairFailActivity.class));
 				}
 			}
 		}
