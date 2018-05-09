@@ -198,6 +198,7 @@
                 android:background="@color/white">
 
                 <RelativeLayout
+                    android:id="@+id/faq_layout"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -257,6 +258,7 @@
                 android:background="@color/white">
 
                 <RelativeLayout
+                    android:id="@+id/feedback_layout"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -354,6 +356,7 @@
                 android:background="@color/white">
 
                 <RelativeLayout
+                    android:id="@+id/modify_nick_layout"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -404,6 +407,7 @@
                 android:background="@color/white">
 
                 <RelativeLayout
+                    android:id="@+id/set_pwd_layout"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -453,6 +457,7 @@
                 android:background="@color/white">
 
                 <RelativeLayout
+                    android:id="@+id/setting_layout"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -516,34 +521,13 @@
 
                     <TextView
                         android:id="@+id/new_tv_version"
+                        style="@style/user_fragment_all"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="8.0dip"
                         android:layout_toRightOf="@+id/currentversion"
-                        android:maxWidth="160dip"
-                        android:text="2.2.0.1851_20160918_100744" />
-
-                    <TextView
-                        style="@style/user_fragment_all"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="6.0dip"
-                        android:layout_toRightOf="@+id/new_tv_version"
-                        android:text="测试版"
-                        android:visibility="gone" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingRight="5.0dip"
-                        android:text="dsada"
-                        android:textColor="@color/red"
-                        android:visibility="gone" />
+                        android:maxWidth="160dip"/>
                 </RelativeLayout>
             </LinearLayout>
 
@@ -565,6 +549,7 @@
                 android:background="@color/white">
 
                 <RelativeLayout
+                    android:id="@+id/about_aikey_layout"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -578,10 +563,12 @@
                         android:src="@drawable/user_about" />
 
                     <TextView
+                        android:id="@+id/about_aikey"
                         style="@style/user_fragment_all"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
+                        android:text="@string/about_aikey"
                         android:layout_toRightOf="@id/image_aboutapp"
                         android:paddingLeft="20.0dip" />
 
@@ -597,113 +584,13 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="@dimen/esp_user_center_item_height"
-                    android:layout_marginTop="8.0dip"
-                    android:background="@color/white">
-
-                    <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:clickable="true"
-                        android:paddingLeft="@dimen/esp_user_center_item_padding_left" >
-
-                        <ImageView
-                            android:id="@+id/image_facebook"
-                            android:layout_width="22.0dip"
-                            android:layout_height="22.0dip"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/logo_facebook" />
-
-                        <TextView
-                            style="@style/user_fragment_all"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_toRightOf="@+id/image_facebook"
-                            android:paddingLeft="20.0dip"
-                            android:text="EWeLink@Facebook" />
-
-                        <TextView
-                            android:layout_width="50.0dip"
-                            android:layout_height="24.0dip"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="8.0dip"
-                            android:layout_marginRight="10.0dip"
-                            android:background="@drawable/shape_rectangle_blue_corner"
-                            android:gravity="center"
-                            android:maxWidth="160.0dip"
-                            android:text="Copy" />
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dip"
-                    android:background="@color/white" >
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="1dip"
-                        android:layout_marginLeft="12dip"
-                        android:background="@color/div_line" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="@dimen/esp_user_center_item_height"
-                    android:background="@color/white">
-
-                    <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingLeft="@dimen/esp_user_center_item_padding_left" >
-
-                        <ImageView
-                            android:id="@+id/image_twitter_icon"
-                            android:layout_width="22.0dip"
-                            android:layout_height="22.0dip"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/logo_twitter" />
-
-                        <TextView
-                            style="@style/user_fragment_all"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_toRightOf="@+id/image_twitter_icon"
-                            android:paddingLeft="20.0dip"
-                            android:text="ewelinkchina@Twitter" />
-
-                        <TextView
-                            android:layout_width="50.0dip"
-                            android:layout_height="24.0dip"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="8.0dip"
-                            android:layout_marginRight="10.0dip"
-                            android:background="@drawable/shape_rectangle_blue_corner"
-                            android:gravity="center"
-                            android:maxWidth="160.0dip"
-                            android:text="Copy" />
-                    </RelativeLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
                 android:layout_height="@dimen/esp_user_center_item_height"
                 android:layout_marginTop="8.0dip"
+                android:layout_marginBottom="8.0dip"
                 android:background="@color/white" >
 
                 <RelativeLayout
+                    android:id="@+id/exit_layout"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_gravity="center" >

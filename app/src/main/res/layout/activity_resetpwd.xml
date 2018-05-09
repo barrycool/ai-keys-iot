@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <include
+        android:id="@id/action_bar"
+        layout="@layout/activity_toolbar" />
+
+    <RelativeLayout
+        android:id="@+id/rl_first"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/action_bar"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:layout_marginTop="30.0dip">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/oldpwd_textinput"
+            android:theme="@style/TextInputLayoutStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/old_password"
+                android:inputType="textPassword"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/edittext_hint" />
+        </android.support.design.widget.TextInputLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_second"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_first"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:layout_marginTop="20.0dip">
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/TextInputLayoutStyle"
+            android:id="@+id/newpwd_textinput"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/new_password"
+                android:inputType="textPassword"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/edittext_hint" />
+        </android.support.design.widget.TextInputLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_third"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_second"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:layout_marginTop="20.0dip">
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/TextInputLayoutStyle"
+            android:id="@+id/confirmpwd_textinput"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/confirm_new_password"
+                android:inputType="textPassword"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/edittext_hint" />
+        </android.support.design.widget.TextInputLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/bt_button"
+            style="@style/bottom_button_style"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/btn_rectangle_bg_blue"
+            android:text="@string/complete" />
+    </RelativeLayout>
+</RelativeLayout>

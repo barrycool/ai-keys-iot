@@ -17,10 +17,12 @@ import android.view.View.OnClickListener;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.ai_keys.iot.AiKeysApplication;
 import com.ai_keys.iot.R;
 import com.ai_keys.iot.tools.XLogger;
 import com.ai_keys.iot.ui.device.AddDeviceStep1;
 import com.ai_keys.iot.ui.device.DeviceAllFragment;
+import com.ai_keys.iot.ui.usercenter.UserCenterFragment;
 
 public class EspMainActivity extends Activity {
 
@@ -133,48 +135,6 @@ public class EspMainActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-
-        new AlertDialog.Builder(this).setMessage(R.string.esp_main_exit_message)
-            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    new FinishTask(EspMainActivity.this).execute();
-                }
-            })
-            .setNegativeButton(android.R.string.cancel, null)
-            .show();
-    }
-
-    private class FinishTask extends AsyncTask<Void, Void, Void> {
-        private EspMainActivity mActivity;
-        private ProgressDialog mDialog;
-
-        public FinishTask(EspMainActivity activity) {
-            mActivity = activity;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            mDialog = new ProgressDialog(mActivity);
-            mDialog.setMessage(mActivity.getString(R.string.esp_main_exiting));
-            mDialog.setCancelable(false);
-            mDialog.show();
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            if (mDialog != null) {
-                mDialog.dismiss();
-                mDialog = null;
-            }
-            mActivity.finish();
-        }
+        AiKeysApplication.onExitApp(EspMainActivity.this);
     }
 }

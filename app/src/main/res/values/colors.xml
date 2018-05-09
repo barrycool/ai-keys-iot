@@ -13,7 +13,8 @@
     <color name="esp_color_blue">#ff3399ff</color>
 	<color name="white">#ffffffff</color>
     <color name="gray">#ffebebeb</color>
-	<color name="page_title">#ff555555</color>	
+    <color name="dark_gray">#333333</color>
+    <color name="page_title">#ff555555</color>
     <color name="div_line">#ffe9e9e9</color>
     <color name="red">#ffee4b4b</color>    	
     <color name="scene_log_offline_alert">#ffdc8157</color>   
@@ -21,7 +22,7 @@
     <color name="black">#ff000000</color>      
     
     
-        <color name="notification_action_color_filter">#ffffffff</color>
+    <color name="notification_action_color_filter">#ffffffff</color>
     <color name="abc_input_method_navigation_guard">@android:color/black</color>
     <color name="abc_search_url_text_normal">#ff7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>

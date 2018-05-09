@@ -13,6 +13,5 @@ public class AddDeviceStep3 extends Activity{
 		setContentView(R.layout.esp_wait_page);
 
 		ProgressBar progressBar = (ProgressBar) findViewById(R.id.pb_wait_paring_progress);
-		progressBar
 	}
 }

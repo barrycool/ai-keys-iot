@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true" >
+
+    <include
+        android:id="@+id/action_bar"
+        layout="@layout/activity_toolbar" />
+
+    <EditText
+        android:id="@+id/et_address"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/action_bar"
+        android:layout_marginLeft="@dimen/page_title"
+        android:layout_marginRight="@dimen/page_title"
+        android:layout_marginTop="35.0dip"
+        android:background="@drawable/feedback_cornor"
+        android:hint="Email"
+        android:textColorHint="@color/dark_gray"
+        android:textColor="@color/dark_gray"
+        android:inputType="textEmailAddress"
+        android:padding="4.0dip"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="fill_parent"
+        android:layout_height="200.0dip"
+        android:layout_below="@+id/et_address"
+        android:layout_marginLeft="@dimen/page_title"
+        android:layout_marginRight="@dimen/page_title"
+        android:layout_marginTop="20.0dip"
+        android:background="@drawable/feedback_cornor"
+        android:gravity="top"
+        android:hint="@string/describ_feebback"
+        android:textColorHint="@color/dark_gray"
+        android:textColor="@color/dark_gray"
+        android:padding="4.0dip"
+        android:paddingRight="20.0dip" />
+
+    <Button
+        android:id="@+id/bt_button"
+        style="@style/bottom_button_style"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_rectangle_bg_blue"
+        android:text="@string/commit" />
+
+</RelativeLayout>

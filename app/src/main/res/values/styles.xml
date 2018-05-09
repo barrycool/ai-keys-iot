@@ -110,4 +110,18 @@
         <item name="android:button">@drawable/selector_hook_single</item>
     </style>
 
+    <style name="bottom_button_style">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginLeft">12.0dip</item>
+        <item name="android:layout_marginRight">12.0dip</item>
+        <item name="android:layout_marginBottom">20.0dip</item>
+    </style>
+
+    <style name="TextInputLayoutStyle">
+        <item name="android:textColorHint">@color/dark_gray</item>
+        <item name="colorControlNormal">@color/dark_gray</item>
+        <item name="colorControlActivated">@color/blue_dark</item>
+        <item name="colorControlHighlight">@color/blue_dark</item>
+    </style>
 </resources>
