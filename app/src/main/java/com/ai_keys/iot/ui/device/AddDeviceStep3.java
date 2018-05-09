@@ -7,7 +7,10 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ai_keys.iot.R;
@@ -22,6 +25,7 @@ import com.ai_keys.iot.net.HttpManager;
 import com.ai_keys.iot.net.HttpManagerInterface;
 import com.ai_keys.iot.tools.Constant;
 import com.ai_keys.iot.tools.XLogger;
+import com.ai_keys.iot.ui.main.EspMainActivity;
 import com.ai_keys.iot.util.ToastUtils;
 
 import org.json.JSONObject;
@@ -30,6 +34,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.Socket;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class AddDeviceStep3 extends Activity{
 
@@ -38,6 +44,10 @@ public class AddDeviceStep3 extends Activity{
 	private IEsptouchResult mIEsptouchResult;
 	private Intent mIntent;
 
+	private Timer progress_timer = new Timer();
+	private TimerTask progress_task;
+	private int max_wait_time = 180; //s
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,7 +55,42 @@ public class AddDeviceStep3 extends Activity{
 
 		mIntent = getIntent();
 		mWifiAdmin = new EspWifiAdminSimple(this);
-		ProgressBar progressBar = (ProgressBar) findViewById(R.id.pb_wait_paring_progress);
+
+		final ProgressBar progressBar = (ProgressBar) findViewById(R.id.pb_wait_paring_progress);
+		progressBar.setProgress(0);
+		progressBar.setMax(max_wait_time);
+
+		progress_task = new TimerTask() {
+			@Override
+			public void run() {
+				if (progressBar.getProgress() < max_wait_time) {
+					progressBar.setProgress(progressBar.getProgress() + 1);
+				}
+				else {
+					progress_timer.cancel();
+				}
+			}
+		};
+		progress_timer.schedule(progress_task, 0, 1000);
+
+		ImageView IV_back = (ImageView) findViewById(R.id.add_device_back);
+		IV_back.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				finish();
+			}
+		});
+
+		TextView textView = (TextView) findViewById(R.id.tv_wait_paring_cancel);
+		textView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(mTask != null) {
+					mTask.cancelEsptouch();
+				}
+				startActivity(new Intent(AddDeviceStep3.this, EspMainActivity.class));
+			}
+		});
 
 		doEspTouch();
 	}
@@ -218,9 +263,9 @@ public class AddDeviceStep3 extends Activity{
 							}
 						}
 					});
-			mProgressDialog.show();
-			mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
-					.setEnabled(false);
+			//mProgressDialog.show();
+			//mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+					//.setEnabled(false);
 		}
 
 		@Override
@@ -249,6 +294,7 @@ public class AddDeviceStep3 extends Activity{
 
 		@Override
 		protected void onPostExecute(List<IEsptouchResult> result) {
+			mProgressDialog.show();
 			mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
 					.setEnabled(true);
 			mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setText(
@@ -285,8 +331,10 @@ public class AddDeviceStep3 extends Activity{
 								+ " more result(s) without showing\n");
 					}
 					mProgressDialog.setMessage(sb.toString());
+					startActivity(new Intent(AddDeviceStep3.this, AddDeviceStep4.class));
 				} else {
 					mProgressDialog.setMessage("Esptouch fail");
+					startActivity(new Intent(AddDeviceStep3.this, PairFailActivity.class));
 				}
 			}
 		}
