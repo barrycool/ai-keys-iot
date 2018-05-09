@@ -124,5 +124,5 @@
     <dimen name="textsize_large">20.0sp</dimen>	
     <dimen name="textsize_normal">16.0sp</dimen>
     <dimen name="edittext_hint">18.0sp</dimen>
-
+    <dimen name="di_device_left">15.0dip</dimen>
 </resources>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:weightSum="1.0">
+
+    <include
+        android:id="@+id/action_bar"
+        layout="@layout/activity_toolbar" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="28.0dip"
+        android:layout_weight="1.0">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingLeft="@dimen/di_device_left"
+            android:paddingRight="@dimen/di_device_left">
+
+            <TextView
+                android:id="@+id/tv_pair_failure_page_title"
+                style="@style/page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16.0dip"
+                android:gravity="center"
+                android:text="@string/pair_failure"
+                android:textColor="@color/switch_channel_color" />
+
+            <TextView
+                android:id="@+id/tv_pair_failure_page_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_pair_failure_page_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24.0dip"
+                android:background="@drawable/pair_failure"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tv_pair_failure_letter"
+                style="@style/page_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_pair_failure_page_pic"
+                android:layout_marginTop="16.0dip"
+                android:lineSpacingExtra="6.0dip"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:textSize="18sp"
+                android:text="@string/pair_failure_tip"
+                android:textColor="@color/switch_channel_color"/>
+
+            <TextView
+                android:id="@+id/tv_pair_failure_reason1_letter"
+                style="@style/page_des"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_pair_failure_letter"
+                android:layout_marginLeft="14.0dip"
+                android:layout_marginTop="10.0dip"
+                android:lineSpacingExtra="6.0dip"
+                android:text="@string/pair_failure_checka"
+                android:textColor="@color/switch_channel_color"/>
+
+            <TextView
+                android:id="@+id/tv_pair_failure_reason2_letter"
+                style="@style/page_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_pair_failure_reason1_letter"
+                android:layout_marginLeft="14.0dip"
+                android:layout_marginTop="10.0dip"
+                android:lineSpacingExtra="6.0dip"
+                android:text="@string/pair_failure_checkb"
+                android:textColor="@color/switch_channel_color"/>
+
+            <TextView
+                android:id="@+id/tv_pair_failure_reason3_letter"
+                style="@style/page_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_pair_failure_reason2_letter"
+                android:layout_marginLeft="14.0dip"
+                android:layout_marginTop="10.0dip"
+                android:lineSpacingExtra="6.0dip"
+                android:text="@string/pair_failure_checkc"
+                android:textColor="@color/switch_channel_color"/>
+
+            <TextView
+                android:id="@+id/tv_pair_failure_reason4_letter"
+                style="@style/page_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_pair_failure_reason3_letter"
+                android:layout_marginLeft="14.0dip"
+                android:layout_marginTop="10.0dip"
+                android:lineSpacingExtra="6.0dip"
+                android:text="@string/pair_failure_checkd"
+                android:textColor="@color/switch_channel_color"/>
+
+            <TextView
+                android:id="@+id/tv_enter_faq"
+                android:layout_width="120.0dip"
+                android:layout_height="40.0dip"
+                android:layout_below="@id/tv_pair_failure_reason4_letter"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20.0dip"
+                android:background="@drawable/pair_failed_faq_bg"
+                android:gravity="center"
+                android:text="@string/enter_faq"
+                android:textColor="@color/list_header_color" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_pair_failure_retry"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/btn_rectangle_height"
+        android:layout_marginBottom="@dimen/confirm_pair_margin_bottom"
+        android:layout_marginLeft="@dimen/di_left"
+        android:layout_marginRight="@dimen/di_left"
+        android:layout_marginTop="@dimen/di_left"
+        android:background="@drawable/btn_rectangle_bg_blue"
+        android:gravity="center"
+        android:text="@string/retry_space"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_large" />
+</LinearLayout>
