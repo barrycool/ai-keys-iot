@@ -44,4 +44,11 @@
     <string name="timers">定时</string>
     <string name="wifi_name">WiFi 名称</string>
     <string name="wifi_pwd">WiFi 密码</string>
+    <string name="commit">提交</string>
+    <string name="describ_feebback">描述你的问题</string>
+    <string name="complete">完 成</string>
+    <string name="old_password">旧密码</string>
+    <string name="new_password">新密码</string>
+    <string name="confirm_new_password">确认密码</string>
+    <string name="about_aikey">关于Ai-keys</string>
 </resources>

@@ -1,13 +1,20 @@
 package com.ai_keys.iot;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.net.DhcpInfo;
 import android.net.wifi.WifiManager;
+import android.os.AsyncTask;
 import android.os.Environment;
+
+import com.ai_keys.iot.ui.main.EspMainActivity;
 
 public class AiKeysApplication extends Application{
     private static AiKeysApplication instance;
@@ -31,8 +38,6 @@ public class AiKeysApplication extends Application{
     {
         super.onCreate();
         instance = this;
-        initAsyn();
-        initSyn();
     }
 
     public Context getContext()
@@ -81,7 +86,7 @@ public class AiKeysApplication extends Application{
         String path = null;
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))
         {
-            path = Environment.getExternalStorageDirectory().toString() + "/Espressif/";
+            path = Environment.getExternalStorageDirectory().toString() + "/Ai-keys/";
         }
         return path;
     }
@@ -91,69 +96,49 @@ public class AiKeysApplication extends Application{
         return getFilesDir().toString();
     }
 
-    private String __formatString(int value)
-    {
-        String strValue = "";
-        byte[] ary = __intToByteArray(value);
-        for (int i = ary.length - 1; i >= 0; i--)
-        {
-            strValue += (ary[i] & 0xFF);
-            if (i > 0)
-            {
-                strValue += ".";
-            }
+
+    public static void onExitApp(final Activity activity) {
+
+        new AlertDialog.Builder(activity).setMessage(R.string.esp_main_exit_message)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        new FinishTask(activity).execute();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    private static class FinishTask extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog mDialog;
+        private Activity mActivity;
+
+        public FinishTask(Activity activity) {
+            mActivity = activity;
         }
-        return strValue;
-    }
 
-    private byte[] __intToByteArray(int value)
-    {
-        byte[] b = new byte[4];
-        for (int i = 0; i < 4; i++)
-        {
-            int offset = (b.length - 1 - i) * 8;
-            b[i] = (byte)((value >>> offset) & 0xFF);
+        @Override
+        protected void onPreExecute() {
+            mDialog = new ProgressDialog(mActivity);
+            mDialog.setMessage(mActivity.getString(R.string.esp_main_exiting));
+            mDialog.setCancelable(false);
+            mDialog.show();
         }
-        return b;
-    }
 
-    public String getGateway()
-    {
-        WifiManager wm = (WifiManager)getSystemService(Context.WIFI_SERVICE);
-        DhcpInfo d = wm.getDhcpInfo();
-        return __formatString(d.gateway);
-    }
+        @Override
+        protected Void doInBackground(Void... params) {
+            return null;
+        }
 
-    private void initSyn()
-    {
-//        // init db
-//        DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, EspStrings.DB.DB_NAME, null);
-//        SQLiteDatabase db = helper.getWritableDatabase();
-//        DaoMaster daoMaster = new DaoMaster(db);
-//        DaoSession daoSession = daoMaster.newSession();
-//        IOTUserDBManager.init(daoSession);
-//        IOTDeviceDBManager.init(daoSession);
-//        EspGroupDBManager.init(daoSession);
-//        IOTApDBManager.init(daoSession);
-//        IOTDownloadIdValueDBManager.init(daoSession);
-//        // data and data directory using seperate session for they maybe take long time
-//        daoSession = daoMaster.newSession();
-//        IOTGenericDataDBManager.init(daoSession);
-//        IOTGenericDataDirectoryDBManager.init(daoSession);
-    }
-
-    private void initAsyn()
-    {
-        new Thread()
-        {
-            @Override
-            public void run()
-            {
-//                InitLogger.init();
-//                CachedThreadPool.getInstance();
-//                WifiAdmin.getInstance();
-//                EspTimeManager.getInstance().getUTCTimeLong();
+        @Override
+        protected void onPostExecute(Void result) {
+            if (mDialog != null) {
+                mDialog.dismiss();
+                mDialog = null;
             }
-        }.start();
+            System.exit(0);
+        }
     }
 }

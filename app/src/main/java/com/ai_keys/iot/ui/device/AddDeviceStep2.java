@@ -2,20 +2,42 @@ package com.ai_keys.iot.ui.device;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ai_keys.iot.R;
+import com.ai_keys.iot.account.AccountManager;
 import com.ai_keys.iot.esptouch.EspWifiAdminSimple;
+import com.ai_keys.iot.esptouch.EsptouchTask;
+import com.ai_keys.iot.esptouch.IEsptouchListener;
+import com.ai_keys.iot.esptouch.IEsptouchResult;
+import com.ai_keys.iot.esptouch.IEsptouchTask;
+import com.ai_keys.iot.esptouch.util.EspAES;
+import com.ai_keys.iot.net.HttpManager;
+import com.ai_keys.iot.net.HttpManagerInterface;
+import com.ai_keys.iot.tools.Constant;
+import com.ai_keys.iot.tools.XLogger;
+import com.ai_keys.iot.util.ToastUtils;
+
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.net.Socket;
+import java.util.List;
 
 public class AddDeviceStep2 extends Activity implements View.OnClickListener{
     private Button bt_next;
@@ -121,7 +143,9 @@ public class AddDeviceStep2 extends Activity implements View.OnClickListener{
 
             Intent intent = new Intent(AddDeviceStep2.this, AddDeviceStep3.class);
             intent.putExtra("wifiSSID", mWifiAdmin.getWifiConnectedSsid());
+            intent.putExtra("bssid", mWifiAdmin.getWifiConnectedBssid());
             intent.putExtra("wifiPWD", TV_pwd.getText().toString());
+            intent.putExtra("taskCount", "1");
 
             startActivity(intent);
         }
