@@ -56,6 +56,8 @@
         <activity
             android:name="com.ai_keys.iot.ui.device.DeviceSettingActivity"/>
         <activity
+            android:name="com.ai_keys.iot.ui.device.PairFailActivity"/>
+        <activity
             android:name="com.ai_keys.iot.ui.usercenter.FaqActivity"/>
         <activity
             android:name="com.ai_keys.iot.ui.usercenter.FeedbackActivity"/>

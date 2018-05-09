@@ -51,4 +51,12 @@
     <string name="new_password">新密码</string>
     <string name="confirm_new_password">确认密码</string>
     <string name="about_aikey">关于Ai-keys</string>
+    <string name="pair_failure">配对失败</string>
+    <string name="enter_faq">查看FAQ</string>
+    <string name="retry_space">重\u0009试</string>
+    <string name="pair_failure_tip">无法找到设备，请检查以下配置</string>
+    <string name="pair_failure_checka">a.请检查手机管家类软件权限设置，确保App有WIFI，位置访问的权限</string>
+    <string name="pair_failure_checkb">b.设备没在配对模式，请让设备进入配对模式</string>
+    <string name="pair_failure_checkc">c.检查WIFI密码是否正确</string>
+    <string name="pair_failure_checkd">d.确保手机和设备尽量靠近WIFI路由器</string>
 </resources>
