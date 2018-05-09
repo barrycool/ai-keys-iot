@@ -96,12 +96,15 @@
                 android:layout_height="10.0dip"
                 android:layout_gravity="center"
                 android:layout_weight="1.0" /> -->
+
             <ProgressBar
                 android:id="@+id/pb_wait_paring_progress"
                 android:layout_width="fill_parent"
                 android:layout_height="10.0dip"
                 android:layout_gravity="center"
                 android:layout_weight="1.0"
+                android:max="100"
+                style="?android:attr/progressBarStyleHorizontal"
                 />
 
             <TextView
@@ -129,6 +132,7 @@
             android:textSize="16.0sp" />
 
         <TextView
+            android:id="@+id/tv_wait_paring_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
