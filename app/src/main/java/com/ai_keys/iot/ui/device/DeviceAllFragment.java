@@ -210,7 +210,8 @@ public class DeviceAllFragment extends Fragment{
                                                 XLogger.d("Alexa.PowerController:" + value);
 												deviceInfoBean.setDevice_status(value);
 											}else if("Alexa.EndpointHealth".equals(namespace)){
-                                                String value = status.optString("value");
+                                                JSONObject connectivity_value = status.optJSONObject("value");
+                                                String value = connectivity_value.optString("value");
                                                 XLogger.d("connectivity:" + value);
                                                 deviceInfoBean.setDevice_connectivity_status(value);
 											}
