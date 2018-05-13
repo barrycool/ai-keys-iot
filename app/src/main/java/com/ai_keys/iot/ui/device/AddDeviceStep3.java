@@ -122,7 +122,7 @@ public class AddDeviceStep3 extends Activity{
 			JSONObject addDevice = new JSONObject();
 			addDevice.put("deviceId", mIEsptouchResult.getBssid());
 			addDevice.put("deviceType", infoObj.optString("deviceType"));
-			addDevice.put("friendlyName", infoObj.optString("deviceType") + "-" + mIEsptouchResult.getBssid().substring(mIEsptouchResult.getBssid().length() - 2));
+			addDevice.put("friendlyName", infoObj.optString("deviceType") + "-" + mIEsptouchResult.getBssid().substring(mIEsptouchResult.getBssid().length() - 4));
 			addDevice.put("manufacturerName", infoObj.optString("manufacturerName"));
 			addDevice.put("userId", AccountManager.getInstance().getUserInfo(this).getUserId());
 
@@ -134,20 +134,24 @@ public class AddDeviceStep3 extends Activity{
 						try {
 							JSONObject content = new JSONObject(msg);
 							JSONObject result = new JSONObject(content.optString("result"));
-							if("OK".equals(result.optString("code"))){
-								ToastUtils.showToast(AddDeviceStep3.this, "设备注册成功");
-							}
+							if("OK".equals(result.optString("code"))) {
+								//ToastUtils.showToast(AddDeviceStep3.this, "设备注册成功");
 
+								Intent intent = new Intent(AddDeviceStep3.this, AddDeviceStep4.class);
+								intent.putExtra("deviceId", content.optString("deviceId", "unknown deviceId"));
+								intent.putExtra("friendlyName", content.optString("friendlyName", "unknown friendlyName"));
+								startActivity(intent);
+							}
 						} catch (Exception e) {
-							ToastUtils.showToast(AddDeviceStep3.this, "设备注册失败");
+							startActivity(new Intent(AddDeviceStep3.this, PairFailActivity.class));
 						}
 					}else{
-						ToastUtils.showToast(AddDeviceStep3.this, "设备注册失败");
+						startActivity(new Intent(AddDeviceStep3.this, PairFailActivity.class));
 					}
 				}
 			});
 		} catch (Exception e) {
-
+			startActivity(new Intent(AddDeviceStep3.this, PairFailActivity.class));
 		}
 	}
 
@@ -331,16 +335,12 @@ public class AddDeviceStep3 extends Activity{
 								+ " more result(s) without showing\n");
 					}
 					//mProgressDialog.setMessage(sb.toString());
-					Intent intent = new Intent(AddDeviceStep3.this, AddDeviceStep4.class);
-					intent.putExtra("deviceId", result.get(0).getBssid());
-					startActivity(intent);
 				} else {
 					//mProgressDialog.setMessage("Esptouch fail");
 					startActivity(new Intent(AddDeviceStep3.this, PairFailActivity.class));
+					finish();
 				}
 			}
-
-			finish();
 		}
 	}
 }

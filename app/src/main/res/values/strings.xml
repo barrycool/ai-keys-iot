@@ -3,4 +3,10 @@
 
     <string name="app_name">Ai-keys</string>
 
+    <string name="device_connection_online_status">online</string>
+    <string name="device_connection_offline_status">offline</string>
+    <string name="title_activity_device_setting_more">DeviceSettingMoreActivity</string>
+
+    <string name="device_setting_more">more setting</string>
+
 </resources>

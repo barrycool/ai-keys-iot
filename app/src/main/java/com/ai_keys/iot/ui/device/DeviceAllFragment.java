@@ -54,8 +54,8 @@ public class DeviceAllFragment extends Fragment{
         mDeviceListView = (ListView) view.findViewById(R.id.device_list);
         mTips = (TextView) view.findViewById(R.id.device_all_tips);
         mTips.setVisibility(View.GONE);
-        
-        getDeviceData();
+
+		getDeviceList();
         mAdapter = new DeviceListAdapter(getActivity(), mDeviceList);
         mAdapter.setListClickListener(listClickListener);
         mDeviceListView.setAdapter(mAdapter);
@@ -86,7 +86,13 @@ public class DeviceAllFragment extends Fragment{
 
 		@Override
 		public void onItemClick(int position) {
-			startActivity(new Intent(getActivity(), DeviceSettingActivity.class));
+			Intent intent = new Intent(getActivity(), DeviceSettingActivity.class);
+			intent.putExtra("device_id", mDeviceList.get(position).getDevice_id());
+			intent.putExtra("device_name", mDeviceList.get(position).getDevice_name());
+			intent.putExtra("device_power_status", mDeviceList.get(position).getDevice_status());
+			intent.putExtra("device_connectivity_status", mDeviceList.get(position).getDevice_connectivity_status());
+
+			startActivity(intent);
 		}
 	};
 	
@@ -143,7 +149,7 @@ public class DeviceAllFragment extends Fragment{
 		}
 	}
 	
-	public void getDeviceData(){
+	public void getDeviceList(){
 
         try {
             JSONObject device = new JSONObject();
@@ -188,11 +194,7 @@ public class DeviceAllFragment extends Fragment{
 	private void quaryDeviceStatus(Context context, List<DeviceInfoBean> deviceList){
 		try{
 			for(final DeviceInfoBean deviceInfoBean:deviceList){
-				JSONObject device = new JSONObject();
-				device.put("token", "token");
-				device.put("deviceId", deviceInfoBean.getDevice_id());
-
-				HttpManager.getInstances().requestDeviceStatus(context, device.toString(), new HttpManagerInterface() {
+				HttpManager.getInstances().requestDeviceStatus(context, deviceInfoBean.getDevice_id(), new HttpManagerInterface() {
 					@Override
 					public void onRequestResult(int flag, final String msg) {
 						if(flag == HttpManagerInterface.REQUEST_OK){
