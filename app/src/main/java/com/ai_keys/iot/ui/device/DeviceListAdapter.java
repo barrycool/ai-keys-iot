@@ -74,8 +74,8 @@ public class DeviceListAdapter extends BaseAdapter{
 			mHolder = new ViewHolder();
 			mHolder.switch_img = (ImageView) convertView.findViewById(R.id.device_switch);
 			mHolder.wifi_img = (ImageView) convertView.findViewById(R.id.device_wifi);
-			mHolder.clock_img = (ImageView) convertView.findViewById(R.id.device_clock);
-			mHolder.delete_img = (ImageView) convertView.findViewById(R.id.device_delete);
+			//mHolder.clock_img = (ImageView) convertView.findViewById(R.id.device_clock);
+			//mHolder.delete_img = (ImageView) convertView.findViewById(R.id.device_delete);
 			mHolder.device_name = (TextView) convertView.findViewById(R.id.device_name);
 			mHolder.device_status = (TextView) convertView.findViewById(R.id.device_status);
 			mHolder.device_item = (RelativeLayout) convertView.findViewById(R.id.device_item);
@@ -85,14 +85,17 @@ public class DeviceListAdapter extends BaseAdapter{
 		}
 		
 		mHolder.device_name.setText(mDeviceInfoList.get(position).getDevice_name());
-		mHolder.device_status.setText(mDeviceInfoList.get(position).getDevice_status());
 
 		if (mDeviceInfoList.get(position).getDevice_connectivity_status() != null &&
 		    mDeviceInfoList.get(position).getDevice_connectivity_status().equals("OK")) {
 			mHolder.wifi_img.setImageResource(R.drawable.device_online_wifi);
+			mHolder.device_status.setText(R.string.device_connection_online_status);
+			mHolder.device_item.setBackgroundResource(R.color.esp_color_blue);
 		}
 		else {
+			mHolder.device_item.setBackgroundResource(R.color.devicelist_offline);
 			mHolder.wifi_img.setImageResource(R.drawable.device_offline_wifi);
+			mHolder.device_status.setText(R.string.device_connection_offline_status);
 		}
 
 		if (mDeviceInfoList.get(position).getDevice_status() != null &&
@@ -118,14 +121,6 @@ public class DeviceListAdapter extends BaseAdapter{
 				mListClickListener.onWifiClick(position);
 			}
 		});
-		
-		mHolder.clock_img.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				mListClickListener.onClockClick(position);
-			}
-		});
 
 		mHolder.device_item.setOnClickListener(new View.OnClickListener(){
 			@Override
@@ -134,7 +129,14 @@ public class DeviceListAdapter extends BaseAdapter{
 			}
 		});
 		
-		/*mHolder.delete_img.setOnClickListener(new OnClickListener() {
+		/*mHolder.clock_img.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				mListClickListener.onClockClick(position);
+			}
+		});
+		mHolder.delete_img.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

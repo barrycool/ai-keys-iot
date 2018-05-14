@@ -3,6 +3,7 @@ package com.ai_keys.iot.net;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.ai_keys.iot.account.AccountManager;
 import com.ai_keys.iot.tools.Constant;
 import com.ai_keys.iot.tools.XLogger;
 
@@ -195,7 +196,7 @@ public class HttpManager {
             
             XLogger.d("deviceList:" + devicelist.toString());
             
-			mAsyncRequest.requestMessage(Constant.DEVICELIST, devicelist.toString(), new AsyncRequest.RequestListener() {
+			mAsyncRequest.requestMessage(Constant.DEVICE_MNT, devicelist.toString(), new AsyncRequest.RequestListener() {
 				
 				@Override
 				public void onComplete(String response) {
@@ -215,26 +216,37 @@ public class HttpManager {
 	/*
 	 * 设备开关
 	 */
-	public void requestDeviceSwitch(final Context context, JSONObject device, final HttpManagerInterface listener){
-		
+	public void requestDevicePowerCtrl(final Context context, String device_id, String power, final HttpManagerInterface listener){
 		try {
-		    device.put("name_space", "Alexa.PowerController");
-            device.put("token", "token");
+			JSONObject request = new JSONObject();
+			request.put("name_space", "Alexa.PowerController");
+			request.put("name", power);
+			request.put("deviceId", device_id);
+			request.put("token", "token");
             
-            XLogger.d("deviceSwitch:" + device.toString());
-            
-			mAsyncRequest.requestMessage(Constant.SWITCHER, device.toString(), new AsyncRequest.RequestListener() {
-				
-				@Override
-				public void onComplete(String response) {
-					XLogger.d(response);
-					if(TextUtils.isEmpty(response)){
-						listener.onRequestResult(HttpManagerInterface.REQUEST_ERROR, "");
-						return;
-					}
-					listener.onRequestResult(HttpManagerInterface.REQUEST_OK, response);
-				}
-			});
+            XLogger.d("DevicePowerCtrl:" + request.toString());
+
+			requestDeviceCtrl(context, request.toString(), listener);
+
+		} catch (Exception e) {
+			listener.onRequestResult(HttpManagerInterface.REQUEST_ERROR, "");
+		}
+	}
+
+	public void requestDeviceUpdateFriendlyName(final Context context, String device_id, String friendlyName, final HttpManagerInterface listener){
+		try {
+			JSONObject request = new JSONObject();
+			request.put("name_space", "DeviceManagement");
+			request.put("name", "UpdateDevice");
+			request.put("deviceId", device_id);
+			request.put("friendlyName", friendlyName);
+			request.put("token", "token");
+			request.put("userId", AccountManager.getInstance().getUserInfo(context).getUserId());
+
+			XLogger.d("UpdateFriendlyName:" + request.toString());
+
+			requestDeviceMng(context, request.toString(), listener);
+
 		} catch (Exception e) {
 			listener.onRequestResult(HttpManagerInterface.REQUEST_ERROR, "");
 		}
@@ -242,7 +254,7 @@ public class HttpManager {
 
 	public void requestDeviceCtrl(final Context context, String info, final HttpManagerInterface listener){
 		try {
-            mAsyncRequest.requestMessage(Constant.SWITCHER, info, new AsyncRequest.RequestListener() {
+            mAsyncRequest.requestMessage(Constant.DEVICE_CTRL, info, new AsyncRequest.RequestListener() {
 
 	        @Override
 	        public void onComplete(String response) {
@@ -258,23 +270,41 @@ public class HttpManager {
 			listener.onRequestResult(HttpManagerInterface.REQUEST_ERROR, "");
 		}
 	}
+
+	public void requestDeviceMng(final Context context, String info, final HttpManagerInterface listener){
+		try {
+			mAsyncRequest.requestMessage(Constant.DEVICE_MNT, info, new AsyncRequest.RequestListener() {
+
+				@Override
+				public void onComplete(String response) {
+					XLogger.d(response);
+					if(TextUtils.isEmpty(response)){
+						listener.onRequestResult(HttpManagerInterface.REQUEST_ERROR, "");
+						return;
+					}
+					listener.onRequestResult(HttpManagerInterface.REQUEST_OK, response);
+				}
+			});
+		} catch (Exception e) {
+			listener.onRequestResult(HttpManagerInterface.REQUEST_ERROR, "");
+		}
+	}
 	
 	/*
 	 * 设备状态查询
 	 */
-	public void requestDeviceStatus(final Context context, String message, final HttpManagerInterface listener){
+	public void requestDeviceStatus(final Context context, String deviceId, final HttpManagerInterface listener){
 		
 		try {
-			JSONObject msg = new JSONObject(message);
             JSONObject status = new JSONObject();
             status.put("name_space", "Alexa");
             status.put("name", "ReportState");
-            status.put("deviceId", msg.optString("deviceId"));
-            status.put("token", msg.optString("token"));
+            status.put("deviceId", deviceId);
+            status.put("token", "token");
             
             XLogger.d("deviceStatus:" + status.toString());
             
-			mAsyncRequest.requestMessage(Constant.SWITCHER, status.toString(), new AsyncRequest.RequestListener() {
+			mAsyncRequest.requestMessage(Constant.DEVICE_CTRL, status.toString(), new AsyncRequest.RequestListener() {
 				
 				@Override
 				public void onComplete(String response) {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_device_setting"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/devicelist_offline" >
@@ -12,25 +13,29 @@
         android:id="@+id/tv_error_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_head"
+        android:layout_below="@id/layout_head"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:drawablePadding="4.0dip"
         android:drawableRight="@drawable/device_offline_icon"
         android:gravity="center"
         android:textColor="@color/upgrade_orange"
-        android:textSize="12.0sp" />
+        android:textSize="12.0sp"
+        android:text="@string/device_connection_offline_status"
+        />
 
+    <!--
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rl_title"
+        android:layout_below="@+id/layout_head"
         android:layout_marginLeft="12.0dip"
         android:background="@drawable/upgrade_bg"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="12.0sp"
         android:visibility="gone" />
+        -->
 
     <include layout="@layout/new_detail_factory_model" />
 
@@ -46,6 +51,7 @@
             android:layout_centerHorizontal="true"
             android:src="@drawable/dimming_lamp_detail_on" />
 
+        <!--
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -77,6 +83,7 @@
                 android:thumb="@drawable/detail_light_belt_bright_on"
                 android:thumbOffset="0.0dip" />
 
+
             <ImageView
                 android:id="@+id/iv_bright"
                 android:layout_width="wrap_content"
@@ -85,6 +92,7 @@
                 android:layout_centerVertical="true"
                 android:src="@drawable/dimming_lamp_detail_bright_big" />
         </RelativeLayout>
+        -->
     </RelativeLayout>
 
     <include layout="@layout/detail_bottom_support_duration_layout" />

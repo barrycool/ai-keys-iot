@@ -33,6 +33,11 @@ public class EspWifiAdminSimple {
             }
 
         }
+
+        if (ssid == null || ssid.length() == 0) {
+            ssid = "yangliu";
+        }
+
         return ssid;
     }
 

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/device_item"
-    android:background="@color/gray" >
+    android:background="@color/gray"
+    android:layout_margin="10dp">
 
     <ImageView
         android:id="@+id/device_switch"
@@ -23,19 +24,29 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/device_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:text="Name"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="10sp"
+                android:textSize="16sp"
+                />
 
             <TextView
                 android:id="@+id/device_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:text="在线"
+                />
         </LinearLayout>
     </RelativeLayout>
 
@@ -62,6 +73,7 @@
                 android:src="@drawable/device_offline_wifi" />
         </LinearLayout>
 
+        <!--
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,6 +96,7 @@
                 android:padding="3dp"
                 android:src="@drawable/device_clock" />
         </LinearLayout>
+        -->
     </LinearLayout>
 
 </RelativeLayout>

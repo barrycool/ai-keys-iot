@@ -46,7 +46,7 @@ public class AddDeviceStep3 extends Activity{
 
 	private Timer progress_timer = new Timer();
 	private TimerTask progress_task;
-	private int max_wait_time = 180; //s
+	private int max_wait_time = 60; //s
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -122,7 +122,7 @@ public class AddDeviceStep3 extends Activity{
 			JSONObject addDevice = new JSONObject();
 			addDevice.put("deviceId", mIEsptouchResult.getBssid());
 			addDevice.put("deviceType", infoObj.optString("deviceType"));
-			addDevice.put("friendlyName", infoObj.optString("deviceType") + "-" + mIEsptouchResult.getBssid().substring(mIEsptouchResult.getBssid().length() - 2));
+			addDevice.put("friendlyName", infoObj.optString("deviceType") + "-" + mIEsptouchResult.getBssid().substring(mIEsptouchResult.getBssid().length() - 4));
 			addDevice.put("manufacturerName", infoObj.optString("manufacturerName"));
 			addDevice.put("userId", AccountManager.getInstance().getUserInfo(this).getUserId());
 
@@ -134,20 +134,24 @@ public class AddDeviceStep3 extends Activity{
 						try {
 							JSONObject content = new JSONObject(msg);
 							JSONObject result = new JSONObject(content.optString("result"));
-							if("OK".equals(result.optString("code"))){
-								ToastUtils.showToast(AddDeviceStep3.this, "设备注册成功");
-							}
+							if("OK".equals(result.optString("code"))) {
+								//ToastUtils.showToast(AddDeviceStep3.this, "设备注册成功");
 
+								Intent intent = new Intent(AddDeviceStep3.this, AddDeviceStep4.class);
+								intent.putExtra("deviceId", content.optString("deviceId", "unknown deviceId"));
+								intent.putExtra("friendlyName", content.optString("friendlyName", "unknown friendlyName"));
+								startActivity(intent);
+							}
 						} catch (Exception e) {
-							ToastUtils.showToast(AddDeviceStep3.this, "设备注册失败");
+							startActivity(new Intent(AddDeviceStep3.this, PairFailActivity.class));
 						}
 					}else{
-						ToastUtils.showToast(AddDeviceStep3.this, "设备注册失败");
+						startActivity(new Intent(AddDeviceStep3.this, PairFailActivity.class));
 					}
 				}
 			});
 		} catch (Exception e) {
-
+			startActivity(new Intent(AddDeviceStep3.this, PairFailActivity.class));
 		}
 	}
 
@@ -232,7 +236,7 @@ public class AddDeviceStep3 extends Activity{
 
 		@Override
 		protected void onPreExecute() {
-			mProgressDialog = new ProgressDialog(AddDeviceStep3.this);
+			/*mProgressDialog = new ProgressDialog(AddDeviceStep3.this);
 			mProgressDialog
 					.setMessage("Esptouch is configuring, please wait for a moment...");
 			mProgressDialog.setCanceledOnTouchOutside(false);
@@ -263,9 +267,9 @@ public class AddDeviceStep3 extends Activity{
 							}
 						}
 					});
-			//mProgressDialog.show();
-			//mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
-					//.setEnabled(false);
+			mProgressDialog.show();
+			mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+					.setEnabled(false);*/
 		}
 
 		@Override
@@ -294,7 +298,7 @@ public class AddDeviceStep3 extends Activity{
 
 		@Override
 		protected void onPostExecute(List<IEsptouchResult> result) {
-			mProgressDialog.show();
+			/*mProgressDialog.show();
 			mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
 					.setEnabled(true);
 			mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setText(
@@ -302,7 +306,7 @@ public class AddDeviceStep3 extends Activity{
 			if (result == null) {
 				mProgressDialog.setMessage("Create Esptouch task failed, the esptouch port could be used by other thread");
 				return;
-			}
+			}*/
 
 			IEsptouchResult firstResult = result.get(0);
 			// check whether the task is cancelled and no results received
@@ -330,11 +334,11 @@ public class AddDeviceStep3 extends Activity{
 						sb.append("\nthere's " + (result.size() - count)
 								+ " more result(s) without showing\n");
 					}
-					mProgressDialog.setMessage(sb.toString());
-					startActivity(new Intent(AddDeviceStep3.this, AddDeviceStep4.class));
+					//mProgressDialog.setMessage(sb.toString());
 				} else {
-					mProgressDialog.setMessage("Esptouch fail");
+					//mProgressDialog.setMessage("Esptouch fail");
 					startActivity(new Intent(AddDeviceStep3.this, PairFailActivity.class));
+					finish();
 				}
 			}
 		}
