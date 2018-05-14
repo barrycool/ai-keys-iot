@@ -160,6 +160,7 @@ public class HttpManager {
             register.put("deviceType", msg.optString("deviceType"));
             register.put("friendlyName", msg.optString("friendlyName"));
             register.put("manufacturerName", msg.optString("manufacturerName"));
+            register.put("modelName", msg.optString("modelName"));
             register.put("userId", msg.optString("userId"));
             
             XLogger.d("DeviceRegister:" + register.toString());
