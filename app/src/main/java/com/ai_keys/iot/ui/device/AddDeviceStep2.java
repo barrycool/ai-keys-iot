@@ -84,6 +84,9 @@ public class AddDeviceStep2 extends Activity implements View.OnClickListener{
                 finish();
             }
         });
+
+        CheckBox save_wifi = (CheckBox) findViewById(R.id.cb_save);
+        save_wifi.setChecked(true);
 	}
 
     @Override

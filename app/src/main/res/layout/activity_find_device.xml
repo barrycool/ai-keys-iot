@@ -165,9 +165,11 @@
                 android:layout_marginLeft="10.0dip"
                 android:layout_toRightOf="@+id/tv_wifi_pwd"
                 android:background="@null"
-                android:inputType="textPassword"
                 android:textColor="@color/font_black_alpha"
                 android:textSize="16.0sp" />
+            <!--
+                android:inputType="textPassword"
+            -->
         </RelativeLayout>
 
         <TextView
