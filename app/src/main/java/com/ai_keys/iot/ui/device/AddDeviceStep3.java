@@ -124,6 +124,7 @@ public class AddDeviceStep3 extends Activity{
 			addDevice.put("deviceType", infoObj.optString("deviceType"));
 			addDevice.put("friendlyName", infoObj.optString("deviceType") + "-" + mIEsptouchResult.getBssid().substring(mIEsptouchResult.getBssid().length() - 4));
 			addDevice.put("manufacturerName", infoObj.optString("manufacturerName"));
+			addDevice.put("modelName", infoObj.optString("modelName"));
 			addDevice.put("userId", AccountManager.getInstance().getUserInfo(this).getUserId());
 
 			HttpManager.getInstances().requestDeviceRegister(this, addDevice.toString(), new HttpManagerInterface() {

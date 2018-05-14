@@ -39,11 +39,10 @@ public class DeviceSettingActivity extends Activity{
         device_setting_bg = (RelativeLayout) findViewById(R.id.rl_device_setting);
 
         Intent intent = getIntent();
-        device_id = intent.getStringExtra("device_id");
-
+        device_id = intent.getStringExtra("deviceId");
 
         device_name = (TextView) findViewById(R.id.device_detail_title);
-        device_name.setText(intent.getStringExtra("device_name"));
+        device_name.setText(intent.getStringExtra("friendlyName"));
         tv_error_tip = (TextView) findViewById(R.id.tv_error_tip);
 
         ImageView iv_setting = (ImageView) findViewById(R.id.device_detail_more_setting);
@@ -53,6 +52,12 @@ public class DeviceSettingActivity extends Activity{
                 startActivity(new Intent(DeviceSettingActivity.this, DeviceSettingMoreActivity.class));
             }
         });
+
+        TextView manufacturerName = (TextView) findViewById(R.id.manufacturerName);
+        manufacturerName.setText(intent.getStringExtra("manufacturerName"));
+
+        TextView modelName = (TextView) findViewById(R.id.modelName);
+        modelName.setText(intent.getStringExtra("modelName"));
 
         device_status = (ImageView) findViewById(R.id.iv_switch);
         device_status.setOnClickListener(new View.OnClickListener() {

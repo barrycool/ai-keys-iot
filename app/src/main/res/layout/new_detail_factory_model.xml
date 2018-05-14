@@ -13,17 +13,39 @@
         android:gravity="right"
         android:orientation="vertical" >
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="厂商:ITEAD"
-            android:textColor="@color/detail_text_color" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="厂商:"
+                android:textColor="@color/detail_text_color" />
+            <TextView
+                android:id="@+id/manufacturerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/detail_text_color" />
+        </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="型号:PSA-B01样品"
-            android:textColor="@color/detail_text_color" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="型号:"
+                android:textColor="@color/detail_text_color" />
+            <TextView
+                android:id="@+id/modelName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/detail_text_color" />
+        </LinearLayout>
     </LinearLayout>
 
     <ImageView

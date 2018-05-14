@@ -87,8 +87,10 @@ public class DeviceAllFragment extends Fragment{
 		@Override
 		public void onItemClick(int position) {
 			Intent intent = new Intent(getActivity(), DeviceSettingActivity.class);
-			intent.putExtra("device_id", mDeviceList.get(position).getDevice_id());
-			intent.putExtra("device_name", mDeviceList.get(position).getDevice_name());
+			intent.putExtra("deviceId", mDeviceList.get(position).getDevice_id());
+			intent.putExtra("friendlyName", mDeviceList.get(position).getDevice_name());
+			intent.putExtra("manufacturerName", mDeviceList.get(position).getDevice_manufacturer_name());
+			intent.putExtra("modelName", mDeviceList.get(position).getDevice_model_name());
 			intent.putExtra("device_power_status", mDeviceList.get(position).getDevice_status());
 			intent.putExtra("device_connectivity_status", mDeviceList.get(position).getDevice_connectivity_status());
 
@@ -173,7 +175,9 @@ public class DeviceAllFragment extends Fragment{
 											deviceInfoBean.setDevice_id(device.optString("deviceId"));
 											deviceInfoBean.setDevice_ip("");
 											deviceInfoBean.setDevice_name(device.optString("friendlyName"));
-											deviceInfoBean.setDevice_status(device.optString("manufacturerName"));
+											deviceInfoBean.setDevice_manufacturer_name(device.optString("manufacturerName"));
+											deviceInfoBean.setDevice_model_name(device.optString("modelName", ""));
+											deviceInfoBean.setDevice_status("OFF");
 											deviceInfoBean.setDevice_connectivity_status("UNREARCHABLE");
 											mDeviceList.add(deviceInfoBean);
 										}
