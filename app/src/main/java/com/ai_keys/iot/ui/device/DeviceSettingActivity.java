@@ -3,6 +3,8 @@ package com.ai_keys.iot.ui.device;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,7 +12,11 @@ import android.os.Looper;
 import android.print.PrinterId;
 import android.provider.ContactsContract;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,6 +37,10 @@ public class DeviceSettingActivity extends Activity{
     private String lastPowerState;
     private RelativeLayout device_setting_bg;
 
+    private LinearLayout mPopSetting;
+    private LinearLayout mPopDelete;
+    private LinearLayout mPopRecord;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,11 +56,42 @@ public class DeviceSettingActivity extends Activity{
         device_name.setText(intent.getStringExtra("device_name"));
         tv_error_tip = (TextView) findViewById(R.id.tv_error_tip);
 
-        ImageView iv_setting = (ImageView) findViewById(R.id.device_detail_more_setting);
+        final ImageView iv_setting = (ImageView) findViewById(R.id.device_detail_more_setting);
         iv_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DeviceSettingActivity.this, DeviceSettingMoreActivity.class));
+                //startActivity(new Intent(DeviceSettingActivity.this, DeviceSettingMoreActivity.class));
+                View popupView = DeviceSettingActivity.this.getLayoutInflater().inflate(R.layout.setting_popup, null);
+
+                PopupWindow window = new PopupWindow(popupView, 300, 400);
+                window.setFocusable(true);
+                window.setOutsideTouchable(true);
+                window.update();
+                window.showAsDropDown(iv_setting, 0, 0);
+
+                mPopSetting = (LinearLayout) popupView.findViewById(R.id.popup_setting_layout);
+                mPopSetting.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(DeviceSettingActivity.this, DeviceSettingMoreActivity.class));
+                    }
+                });
+
+                mPopDelete = (LinearLayout) popupView.findViewById(R.id.popup_delete_layout);
+                mPopDelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
+
+                mPopRecord = (LinearLayout) popupView.findViewById(R.id.popup_record_layout);
+                mPopRecord.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
             }
         });
 
@@ -91,7 +132,7 @@ public class DeviceSettingActivity extends Activity{
         uiHandler.post(new Runnable() {
             @Override
             public void run() {
-                if (connectivityState.equals("OK")) {
+                if ("OK".equals(connectivityState)) {
                     device_setting_bg.setBackgroundResource(R.color.esp_color_blue);
                     tv_error_tip.setVisibility(View.INVISIBLE);
                     if (powerState.equals("ON")) {
