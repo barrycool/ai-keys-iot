@@ -22,6 +22,7 @@ import com.ai_keys.iot.R;
 import com.ai_keys.iot.tools.XLogger;
 import com.ai_keys.iot.ui.device.AddDeviceStep1;
 import com.ai_keys.iot.ui.device.DeviceAllFragment;
+import com.ai_keys.iot.ui.device.DeviceSettingActivity;
 import com.ai_keys.iot.ui.usercenter.UserCenterFragment;
 
 public class EspMainActivity extends Activity {

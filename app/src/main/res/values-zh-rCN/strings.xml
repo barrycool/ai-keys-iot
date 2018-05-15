@@ -65,4 +65,14 @@
 
     <string name="device_setting_more">更多设置</string>
 
+    <string name="device_setting_setting">设置</string>
+    <string name="device_setting_delete">删除</string>
+    <string name="device_setting_record">操作记录</string>
+    <string name="device_setting_more_title">设备设置</string>
+    <string name="device_setting_device_name">设备名称:</string>
+    <string name="device_setting_notification">设备端和分享用户操作通知：</string>
+    <string name="device_setting_on">开</string>
+    <string name="device_setting_off">关</string>
+    <string name="device_setting_power_stay">上电保持</string>
+    <string name="device_setting_power_state">上电状态</string>
 </resources>
