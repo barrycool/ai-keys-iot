@@ -33,7 +33,7 @@ public class HttpManager {
 	public void requestSmsCode(final Context context, String message, final HttpManagerInterface listener){
 		try {
             
-			mAsyncRequest.requestMessage(Constant.REGISTER, "", new AsyncRequest.RequestListener() {
+			mAsyncRequest.requestMessage(Constant.DEVICE_MNT, "", new AsyncRequest.RequestListener() {
 				
 				@Override
 				public void onComplete(String response) {
@@ -67,7 +67,7 @@ public class HttpManager {
             
             XLogger.d("Register:" + register.toString());
             
-			mAsyncRequest.requestMessage(Constant.REGISTER, register.toString(), new AsyncRequest.RequestListener() {
+			mAsyncRequest.requestMessage(Constant.DEVICE_MNT, register.toString(), new AsyncRequest.RequestListener() {
 				
 				@Override
 				public void onComplete(String response) {
@@ -97,7 +97,7 @@ public class HttpManager {
             
             XLogger.d("RequestCode:" + requestCode.toString());
             
-			mAsyncRequest.requestMessage(Constant.REGISTER, requestCode.toString(), new AsyncRequest.RequestListener() {
+			mAsyncRequest.requestMessage(Constant.DEVICE_MNT, requestCode.toString(), new AsyncRequest.RequestListener() {
 				
 				@Override
 				public void onComplete(String response) {
@@ -129,7 +129,7 @@ public class HttpManager {
             
             XLogger.d("Login:" + loginObj.toString());
             
-			mAsyncRequest.requestMessage(Constant.REGISTER, loginObj.toString(), new AsyncRequest.RequestListener() {
+			mAsyncRequest.requestMessage(Constant.DEVICE_MNT, loginObj.toString(), new AsyncRequest.RequestListener() {
 				
 				@Override
 				public void onComplete(String response) {
@@ -165,8 +165,36 @@ public class HttpManager {
             
             XLogger.d("DeviceRegister:" + register.toString());
             
-			mAsyncRequest.requestMessage(Constant.REGISTER, register.toString(), new AsyncRequest.RequestListener() {
+			mAsyncRequest.requestMessage(Constant.DEVICE_MNT, register.toString(), new AsyncRequest.RequestListener() {
 				
+				@Override
+				public void onComplete(String response) {
+					XLogger.d(response);
+					if(TextUtils.isEmpty(response)){
+						listener.onRequestResult(HttpManagerInterface.REQUEST_ERROR, "");
+						return;
+					}
+					listener.onRequestResult(HttpManagerInterface.REQUEST_OK, response);
+				}
+			});
+		} catch (Exception e) {
+			listener.onRequestResult(HttpManagerInterface.REQUEST_ERROR, "");
+		}
+	}
+
+	public void requestDeviceDelete(final Context context, String deviceId, final HttpManagerInterface listener){
+
+		try {
+			JSONObject register = new JSONObject();
+			register.put("name_space", "DeviceManagement");
+			register.put("name", "DeleteDevice");
+			register.put("deviceId", deviceId);
+			register.put("userId", AccountManager.getInstance().getUserInfo(context).getUserId());
+
+			XLogger.d("DeviceRegister:" + register.toString());
+
+			mAsyncRequest.requestMessage(Constant.DEVICE_MNT, register.toString(), new AsyncRequest.RequestListener() {
+
 				@Override
 				public void onComplete(String response) {
 					XLogger.d(response);

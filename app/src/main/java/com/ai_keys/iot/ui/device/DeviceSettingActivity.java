@@ -30,6 +30,7 @@ import org.json.JSONObject;
 
 public class DeviceSettingActivity extends Activity{
     private String device_id;
+    private String friendlyName;
     private TextView device_name;
     private TextView tv_error_tip;
     private ImageView device_status;
@@ -50,9 +51,10 @@ public class DeviceSettingActivity extends Activity{
 
         Intent intent = getIntent();
         device_id = intent.getStringExtra("deviceId");
+        friendlyName = intent.getStringExtra("friendlyName");
 
         device_name = (TextView) findViewById(R.id.device_detail_title);
-        device_name.setText(intent.getStringExtra("friendlyName"));
+        device_name.setText(friendlyName);
         tv_error_tip = (TextView) findViewById(R.id.tv_error_tip);
 
         final ImageView iv_setting = (ImageView) findViewById(R.id.device_detail_more_setting);
@@ -72,7 +74,10 @@ public class DeviceSettingActivity extends Activity{
                 mPopSetting.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(DeviceSettingActivity.this, DeviceSettingMoreActivity.class));
+                        Intent intent = new Intent(DeviceSettingActivity.this, DeviceSettingMoreActivity.class);
+                        intent.putExtra("deviceId", device_id);
+                        intent.putExtra("friendlyName", friendlyName);
+                        startActivity(intent);
                     }
                 });
 
@@ -80,7 +85,7 @@ public class DeviceSettingActivity extends Activity{
                 mPopDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        HttpManager.getInstances().requestDeviceDelete(getApplicationContext(), device_id, null);
                     }
                 });
 
