@@ -8,5 +8,8 @@
     <string name="title_activity_device_setting_more">DeviceSettingMoreActivity</string>
 
     <string name="device_setting_more">more setting</string>
+    <string name="device_setting_more_rename_device">rename device</string>
+    <string name="device_setting_more_confirm">confirm</string>
+    <string name="device_setting_more_cancel">cancel</string>
 
 </resources>

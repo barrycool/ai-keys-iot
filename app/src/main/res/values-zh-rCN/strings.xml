@@ -64,6 +64,9 @@
     <string name="device_connection_offline_status">离线</string>
 
     <string name="device_setting_more">更多设置</string>
+    <string name="device_setting_more_rename_device">重新命名设备</string>
+    <string name="device_setting_more_confirm">确认</string>
+    <string name="device_setting_more_cancel">取消</string>
 
     <string name="device_setting_setting">设置</string>
     <string name="device_setting_delete">删除</string>
