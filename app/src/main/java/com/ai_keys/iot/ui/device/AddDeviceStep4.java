@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.ai_keys.iot.R;
 import com.ai_keys.iot.net.HttpManager;
+import com.ai_keys.iot.net.HttpManagerInterface;
 import com.ai_keys.iot.ui.main.EspMainActivity;
 
 public class AddDeviceStep4 extends Activity{
@@ -39,7 +40,12 @@ public class AddDeviceStep4 extends Activity{
 			@Override
 			public void onClick(View v) {
 				if (!device_new_name.getText().equals(friendlyName)) {
-					HttpManager.getInstances().requestDeviceUpdateFriendlyName(getApplicationContext(), deviceId, device_new_name.getText().toString(), null);
+					HttpManager.getInstances().requestDeviceUpdateFriendlyName(getApplicationContext(), deviceId, device_new_name.getText().toString(), new HttpManagerInterface() {
+						@Override
+						public void onRequestResult(int flag, String msg) {
+							license type
+						}
+					});
 				}
 
 				startActivity(new Intent(AddDeviceStep4.this, EspMainActivity.class));

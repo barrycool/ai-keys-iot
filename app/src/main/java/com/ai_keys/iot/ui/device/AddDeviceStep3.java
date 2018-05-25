@@ -26,6 +26,7 @@ import com.ai_keys.iot.net.HttpManagerInterface;
 import com.ai_keys.iot.tools.Constant;
 import com.ai_keys.iot.tools.XLogger;
 import com.ai_keys.iot.ui.main.EspMainActivity;
+import com.ai_keys.iot.ui.main.EspMainDeviceFragment;
 import com.ai_keys.iot.util.ToastUtils;
 
 import org.json.JSONObject;
@@ -137,8 +138,12 @@ public class AddDeviceStep3 extends Activity{
 							JSONObject result = new JSONObject(content.optString("result"));
 							if("OK".equals(result.optString("code"))) {
 								//ToastUtils.showToast(AddDeviceStep3.this, "设备注册成功");
+								Intent intent = new Intent(Constant.DEVICE_ADD_COMPLETE);
+								intent.putExtra("deviceId", content.optString("deviceId", "unknown deviceId"));
+								intent.putExtra("friendlyName", content.optString("friendlyName", "unknown friendlyName"));
+								LocalBroadcastManager.getInstance(AddDeviceStep3.this).sendBroadcast(intent);
 
-								Intent intent = new Intent(AddDeviceStep3.this, AddDeviceStep4.class);
+								intent = new Intent(AddDeviceStep3.this, AddDeviceStep4.class);
 								intent.putExtra("deviceId", content.optString("deviceId", "unknown deviceId"));
 								intent.putExtra("friendlyName", content.optString("friendlyName", "unknown friendlyName"));
 								startActivity(intent);

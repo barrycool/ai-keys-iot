@@ -93,7 +93,7 @@ public class EspMainDeviceFragment extends Fragment implements OnClickListener{
 
 		}
 	}
-	
+
 	public static final String INTENT_EXTRA_KEY_QR_SCAN = "qr_scan_result";
 
 	@Override

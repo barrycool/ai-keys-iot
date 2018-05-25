@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -23,6 +24,8 @@ import com.ai_keys.iot.net.HttpManagerInterface;
 import com.ai_keys.iot.tools.Constant;
 import com.ai_keys.iot.tools.XLogger;
 import com.ai_keys.iot.ui.usercenter.AboutAiKeyActivity;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -36,6 +39,7 @@ public class DeviceAllFragment extends Fragment{
 	private DeviceListAdapter mAdapter;
 	
 	private static List<DeviceInfoBean> mDeviceList = new ArrayList<DeviceInfoBean>();
+	Gson gson;
 	
 	private TextView mTips;
 	
@@ -55,7 +59,13 @@ public class DeviceAllFragment extends Fragment{
         mTips = (TextView) view.findViewById(R.id.device_all_tips);
         mTips.setVisibility(View.GONE);
 
-		getDeviceList();
+		gson = new Gson();
+
+		loadDeviceList();
+
+		if (mDeviceList.size() == 0)
+			getDeviceList();
+
         mAdapter = new DeviceListAdapter(getActivity(), mDeviceList);
         mAdapter.setListClickListener(listClickListener);
         mDeviceListView.setAdapter(mAdapter);
@@ -97,6 +107,26 @@ public class DeviceAllFragment extends Fragment{
 			startActivity(intent);
 		}
 	};
+
+	public void loadDeviceList() {
+		SharedPreferences sp = getActivity().
+				getSharedPreferences("deviceMNG:"+AccountManager.getInstance().getUserInfo(getActivity()).getUserId(),
+						Context.MODE_PRIVATE);
+
+		String deviceList = sp.getString("deviceList", "[]");
+		mDeviceList = gson.fromJson(deviceList, new TypeToken<List<DeviceInfoBean>>(){}.getType());
+	}
+
+	public void saveDeviceList() {
+		String tmp = gson.toJson(mDeviceList);
+
+		SharedPreferences sp = getActivity().
+				getSharedPreferences("deviceMNG:"+AccountManager.getInstance().getUserInfo(getActivity()).getUserId(),
+						Context.MODE_PRIVATE);
+		SharedPreferences.Editor ed = sp.edit();
+		ed.putString("deviceList", tmp);
+		ed.commit();
+	}
 	
 	private void openDevice(final int position){
 		try {
@@ -163,31 +193,38 @@ public class DeviceAllFragment extends Fragment{
     			@Override
     			public void onRequestResult(int flag, final String msg) {
     				if(flag == HttpManagerInterface.REQUEST_OK){
-							try {
-								mDeviceList.clear();
-								JSONObject content = new JSONObject(msg);
-								if(content.has("devices")) {
-									JSONArray deviceList = new JSONArray(content.optString("devices"));
-									if (deviceList != null && deviceList.length() > 0) {
-										for (int i = 0; i < deviceList.length(); i++) {
-											JSONObject device = deviceList.getJSONObject(i);
-											DeviceInfoBean deviceInfoBean = new DeviceInfoBean();
-											deviceInfoBean.setDevice_id(device.optString("deviceId"));
-											deviceInfoBean.setDevice_ip("");
-											deviceInfoBean.setDevice_name(device.optString("friendlyName"));
-											deviceInfoBean.setDevice_manufacturer_name(device.optString("manufacturerName"));
-											deviceInfoBean.setDevice_model_name(device.optString("modelName", ""));
-											deviceInfoBean.setDevice_status("OFF");
-											deviceInfoBean.setDevice_connectivity_status("UNREARCHABLE");
-											mDeviceList.add(deviceInfoBean);
+    					uiHandler.post(new Runnable() {
+							@Override
+							public void run() {
+								try {
+									mDeviceList.clear();
+									JSONObject content = new JSONObject(msg);
+									if (content.has("devices")) {
+										JSONArray deviceList = new JSONArray(content.optString("devices"));
+										if (deviceList != null && deviceList.length() > 0) {
+											for (int i = 0; i < deviceList.length(); i++) {
+												JSONObject device = deviceList.getJSONObject(i);
+												DeviceInfoBean deviceInfoBean = new DeviceInfoBean();
+												deviceInfoBean.setDevice_id(device.optString("deviceId"));
+												deviceInfoBean.setDevice_ip("");
+												deviceInfoBean.setDevice_name(device.optString("friendlyName"));
+												deviceInfoBean.setDevice_manufacturer_name(device.optString("manufacturerName"));
+												deviceInfoBean.setDevice_model_name(device.optString("modelName", ""));
+												deviceInfoBean.setDevice_status("OFF");
+												deviceInfoBean.setDevice_connectivity_status("UNREARCHABLE");
+												mDeviceList.add(deviceInfoBean);
+											}
+											mAdapter.notifyDataSetChanged();
+											saveDeviceList();
 										}
+										quaryDeviceStatus(getActivity(), mDeviceList);
 									}
-									quaryDeviceStatus(getActivity(), mDeviceList);
-								}
-							}catch(Exception e){
+								} catch (Exception e) {
 
+								}
 							}
-						}
+						});
+    				}
     			}
     		});
 		} catch (Exception e) {
@@ -264,24 +301,10 @@ public class DeviceAllFragment extends Fragment{
 	private BroadcastReceiver deviceAddReceiver = new BroadcastReceiver() {
 	    @Override
 	    public void onReceive(Context context, Intent intent) {
-	    	if(intent == null){
+	    	if (intent == null)
 	    		return;
-	    	}
-	        final String bssid = intent.getStringExtra("bssid");
-	        final String ip = intent.getStringExtra("ip");
-	        uiHandler.post(new Runnable() {
-				
-				@Override
-				public void run() {
-			        DeviceInfoBean deviceInfoBean = new DeviceInfoBean();
-			        deviceInfoBean.setDevice_id(bssid);
-			        deviceInfoBean.setDevice_ip(ip);
-			        deviceInfoBean.setDevice_name(bssid);
-			        deviceInfoBean.setDevice_status(ip);
-			        mDeviceList.add(deviceInfoBean);
-			        mAdapter.notifyDataSetChanged();
-				}
-			});
+
+	    	getDeviceList();
 	    }
 	};
 }
