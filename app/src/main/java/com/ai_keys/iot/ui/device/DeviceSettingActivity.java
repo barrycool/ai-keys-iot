@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.print.PrinterId;
 import android.provider.ContactsContract;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -23,13 +24,14 @@ import android.widget.TextView;
 import com.ai_keys.iot.R;
 import com.ai_keys.iot.net.HttpManager;
 import com.ai_keys.iot.net.HttpManagerInterface;
+import com.ai_keys.iot.tools.Constant;
 import com.ai_keys.iot.tools.XLogger;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class DeviceSettingActivity extends Activity{
-    private String device_id;
+    private String deviceId;
     private String friendlyName;
     private TextView device_name;
     private TextView tv_error_tip;
@@ -50,7 +52,7 @@ public class DeviceSettingActivity extends Activity{
         device_setting_bg = (RelativeLayout) findViewById(R.id.rl_device_setting);
 
         Intent intent = getIntent();
-        device_id = intent.getStringExtra("deviceId");
+        deviceId = intent.getStringExtra("deviceId");
         friendlyName = intent.getStringExtra("friendlyName");
 
         device_name = (TextView) findViewById(R.id.device_detail_title);
@@ -75,7 +77,7 @@ public class DeviceSettingActivity extends Activity{
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(DeviceSettingActivity.this, DeviceSettingMoreActivity.class);
-                        intent.putExtra("deviceId", device_id);
+                        intent.putExtra("deviceId", deviceId);
                         intent.putExtra("friendlyName", friendlyName);
                         startActivity(intent);
                     }
@@ -85,7 +87,16 @@ public class DeviceSettingActivity extends Activity{
                 mPopDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        HttpManager.getInstances().requestDeviceDelete(getApplicationContext(), device_id, null);
+                        HttpManager.getInstances().requestDeviceDelete(getApplicationContext(), deviceId, new HttpManagerInterface() {
+                            @Override
+                            public void onRequestResult(int flag, String msg) {
+                                Intent intent = new Intent(Constant.DEVICE_ADD_COMPLETE);
+                                intent.putExtra("deviceId", deviceId);
+                                intent.putExtra("friendlyName", device_name.getText().toString());
+                                LocalBroadcastManager.getInstance(DeviceSettingActivity.this).sendBroadcast(intent);
+                                finish();
+                            }
+                        });
                     }
                 });
 
@@ -170,7 +181,7 @@ public class DeviceSettingActivity extends Activity{
             powerCtrl = "TurnOn";
         }
 
-        HttpManager.getInstances().requestDevicePowerCtrl(this, device_id, powerCtrl, new HttpManagerInterface() {
+        HttpManager.getInstances().requestDevicePowerCtrl(this, deviceId, powerCtrl, new HttpManagerInterface() {
             @Override
             public void onRequestResult(int flag, String msg) {
                 if(flag == HttpManagerInterface.REQUEST_OK){
@@ -201,7 +212,7 @@ public class DeviceSettingActivity extends Activity{
     }
 
     private void fresh_device_state() {
-        HttpManager.getInstances().requestDeviceStatus(this, device_id, new HttpManagerInterface() {
+        HttpManager.getInstances().requestDeviceStatus(this, deviceId, new HttpManagerInterface() {
             @Override
             public void onRequestResult(int flag, String msg) {
                 if(flag == HttpManagerInterface.REQUEST_OK){

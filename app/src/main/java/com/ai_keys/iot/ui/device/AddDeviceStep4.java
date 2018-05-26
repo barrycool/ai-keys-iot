@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.text.InputType;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.ai_keys.iot.R;
 import com.ai_keys.iot.net.HttpManager;
 import com.ai_keys.iot.net.HttpManagerInterface;
+import com.ai_keys.iot.tools.Constant;
 import com.ai_keys.iot.ui.main.EspMainActivity;
 
 public class AddDeviceStep4 extends Activity{
@@ -43,7 +45,10 @@ public class AddDeviceStep4 extends Activity{
 					HttpManager.getInstances().requestDeviceUpdateFriendlyName(getApplicationContext(), deviceId, device_new_name.getText().toString(), new HttpManagerInterface() {
 						@Override
 						public void onRequestResult(int flag, String msg) {
-							license type
+							Intent intent = new Intent(Constant.DEVICE_ADD_COMPLETE);
+							intent.putExtra("deviceId", deviceId);
+							intent.putExtra("friendlyName", device_new_name.getText().toString());
+							LocalBroadcastManager.getInstance(AddDeviceStep4.this).sendBroadcast(intent);
 						}
 					});
 				}

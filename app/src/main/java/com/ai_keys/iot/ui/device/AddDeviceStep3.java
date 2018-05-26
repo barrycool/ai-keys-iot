@@ -147,6 +147,7 @@ public class AddDeviceStep3 extends Activity{
 								intent.putExtra("deviceId", content.optString("deviceId", "unknown deviceId"));
 								intent.putExtra("friendlyName", content.optString("friendlyName", "unknown friendlyName"));
 								startActivity(intent);
+								finish();
 							}
 						} catch (Exception e) {
 							startActivity(new Intent(AddDeviceStep3.this, PairFailActivity.class));
@@ -173,6 +174,12 @@ public class AddDeviceStep3 extends Activity{
 		} catch (Exception e) {
 
 		}
+	}
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		finish();
 	}
 
 	private Socket socket;
