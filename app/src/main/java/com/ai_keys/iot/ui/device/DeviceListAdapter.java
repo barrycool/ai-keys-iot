@@ -90,7 +90,7 @@ public class DeviceListAdapter extends BaseAdapter{
 		    mDeviceInfoList.get(position).getDevice_connectivity_status().equals("OK")) {
 			mHolder.wifi_img.setImageResource(R.drawable.device_online_wifi);
 			mHolder.device_status.setText(R.string.device_connection_online_status);
-			mHolder.device_item.setBackgroundResource(R.color.esp_color_blue);
+			mHolder.device_item.setBackgroundResource(R.color.device_online);
 		}
 		else {
 			mHolder.device_item.setBackgroundResource(R.color.devicelist_offline);

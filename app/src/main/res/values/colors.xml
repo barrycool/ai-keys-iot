@@ -98,4 +98,5 @@
 	<color name="abc_primary_text_material_dark">#ffee4b4b</color>	
 	<color name="abc_primary_text_disable_only_material_dark">#ffee4b4b</color>
     <color name="list_header_color">#ff78d0f9</color>
+    <color name="device_online">#3ec2fb</color>
 </resources>
